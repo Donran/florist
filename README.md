@@ -11,6 +11,8 @@
 #### OS 
 **Linux: Ubuntu 20.04.1 LTS**
 
+För att kunna köra testerna måste ett par paket vara installerade.
+
 
 
 ## Kodningsstandard
