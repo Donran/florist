@@ -1,9 +1,10 @@
 # Florist
 
 ## Programmeringsspråk
-**HTML**
-**CSS**
-**JavaScript med JQuery**
+
+####HTML####
+####CSS####
+####JavaScript med JQuery####
 
 ## Utvecklingsmiljöstandard
 
