@@ -1,5 +1,18 @@
 # florist
 
+## Utvecklingsmiljöstandard
+
+#### Editor 
+Valfri
+
+#### Browser 
+Firefox/Chromium
+
+#### OS 
+    Linux: Ubuntu 20.04.1 LTS
+
+___
+
 ## Kodningsstandard
 
 #### Kod
