@@ -1,5 +1,10 @@
 # Florist
 
+## Programmeringsspråk
+**HTML**
+**CSS**
+**JavaScript med JQuery**
+
 ## Utvecklingsmiljöstandard
 
 #### Editor 
