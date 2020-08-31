@@ -3,10 +3,10 @@
 ## Utvecklingsmiljöstandard
 
 #### Editor 
-Valfri
+**Valfri**
 
 #### Browser 
-Firefox/Chromium
+**Firefox/Chromium**
 
 #### OS 
 **Linux: Ubuntu 20.04.1 LTS**
