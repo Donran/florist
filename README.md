@@ -3,7 +3,7 @@
 ## Kodningsstandard
 
 #### Kod
-    K&R indentering om inget annat har specificerats
+*K&R indentering om inget annat har specificerats
     4 spaces ska användas vid indentering
     Om det är delar som är komplicerade, ska de vara extra kommenterade utöver dokumentationen.
     Koden ska vara städad, t.ex. ingen gammal kod i kommentarer.
