@@ -9,9 +9,9 @@ Valfri
 Firefox/Chromium
 
 #### OS 
-    Linux: Ubuntu 20.04.1 LTS
+**Linux: Ubuntu 20.04.1 LTS**
 
-___
+
 
 ## Kodningsstandard
 
