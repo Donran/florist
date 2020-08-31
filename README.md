@@ -1,4 +1,4 @@
-# florist
+# Florist
 
 ## Utvecklingsmiljöstandard
 
