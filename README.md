@@ -6,6 +6,8 @@
 #### CSS
 #### JavaScript med JQuery
 
+
+
 ## Utvecklingsmiljöstandard
 
 #### Editor 
@@ -48,3 +50,23 @@ För att kunna köra testerna måste ett par paket vara installerade.
 + När typerna är säkra ska triple equals användas
 + Nyare sättet för anonyma funktioner ska användas (Arrow functions)
 
+
+
+## Definition of Done 
+
+#### Generellt
++ Allt som görs ska på något sätt kunna presenteras.
+#### Dokument
++ Alla har läst igenom, förstår och håller med.
++ Dokumenten ska vara kompletta, ska täcka hela backloggen i skrivandes stund.
+#### Kod
++ Tester ska vara skrivna och gröna
++ Kodningsstandard & programmeringsspråk dokumenten ska följas.
++ Alla ska ha läst igenom koden och dokumentation samt förstå dessa.
++ Om de behövs, ska användartester ha genomförts.
++ Klappa kapitalist-robin och be om förlåtelse för koden
+#### Versionshantering 
++ Alla CI/CD verktyg som behövs ska vara aktiverade
++ Static code analysis 
++ Automatic tests
+++ Static Application Security Testing (SAS
