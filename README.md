@@ -11,7 +11,7 @@
 
 ## Utvecklingsmiljöstandard
 
-#### Edi 
+#### Editor 
 **Valfri**
 
 #### Browser 
