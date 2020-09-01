@@ -67,6 +67,9 @@ För att kunna köra testerna måste ett par paket vara installerade.
 + Klappa kapitalist-robin och be om förlåtelse för koden
 #### Versionshantering 
 + Alla CI/CD verktyg som behövs ska vara aktiverade
-Static code analysis 
+
+Static code analysis
+
 Automatic tests
+
 Static Application Security Testing (SAS
