@@ -9,6 +9,10 @@ pages:
   artifacts:
     paths:
       - public
+  only:
+    changes:
+      - "public/**/*.css"
+      - "public/**/*.html"
 
 html_validator:
   stage: test
