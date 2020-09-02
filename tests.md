@@ -12,12 +12,12 @@ Begin by opening the `website_tests.py` file.
 In the WebsiteTest class you will begin by adding a method with a name describing the test you will execute.
 
 Let's say we want to create a function checking if the title is correct.
-```def test_title_is_correct(self):
-    print("Checking if title is correct.")
-    driver = self.driver
-    driver.get(self.WEBSITE_URL)
-    validTitle = "NTI"
-    self.assertIn(validTitle, driver.title) 
-```
+def test_title_is_correct(self):
+print("Checking if title is correct.")
+driver = self.driver
+driver.get(self.WEBSITE_URL)
+validTitle = "NTI"
+self.assertIn(validTitle, driver.title) 
+
 
 Now the test is implemented and will be run.
