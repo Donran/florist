@@ -1,0 +1,8 @@
+/* Endast för skärmar med upplösningen 1080p */
+
+@media only screen and (min-width: 1080px) {
+    body {
+        text-align: center;
+    }
+    
+}
