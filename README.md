@@ -1,6 +1,6 @@
 # Florist
 
-## Test system documentation can be found at
+## Test system documentation can be found at:
 [Test System Documentation](https://gitlab.com/the-travelling-salesmen/florist/-/blob/master/tests.md)
 
 ## Programmeringsspråk
