@@ -1,0 +1,38 @@
+image: pluppen/auto-selenium-python:1.0
+
+stages:
+  - test
+
+pages:
+  script:
+    - echo "helo"
+  artifacts:
+    paths:
+      - public
+
+html_validator:
+  stage: test
+  script:
+    - ./ci/scripts/validate/html_validator.sh public
+  only:
+    changes:
+      - "public/**/*.html"
+
+css_validator:
+  stage: test
+  script:
+    - ./ci/scripts/validate/css_validator.sh public
+  only:
+    changes:
+      - "public/**/*.css"
+
+website-test:
+  stage: test
+  before_script:
+    - pip3 install selenium requests
+  script:
+    - python3 ./ci/scripts/webtest/website_tests.py
+  only:
+    changes:
+      - "public/**/*.css"
+      - "public/**/*.html"
