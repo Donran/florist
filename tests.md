@@ -1,9 +1,9 @@
 # Test System Documentation
 
 ## Useful links
-[Unittest cheat sheet](https://kapeli.com/cheat_sheets/Python_unittest_Assertions.docset/Contents/Resources/Documents/index)
-[Selenium locating elements](https://selenium-python.readthedocs.io/locating-elements.html)
-[Navigating in selenium](https://selenium-python.readthedocs.io/navigating.html)
+- [Unittest cheat sheet](https://kapeli.com/cheat_sheets/Python_unittest_Assertions.docset/Contents/Resources/Documents/index)
+- [Selenium locating elements](https://selenium-python.readthedocs.io/locating-elements.html)
+- [Navigating in selenium](https://selenium-python.readthedocs.io/navigating.html)
 
 ## Adding a Test
 
