@@ -12,7 +12,7 @@ Begin by opening the `website_tests.py` file.
 In the WebsiteTest class you will begin by adding a method with a name describing the test you will execute.
 
 Let's say we want to create a function checking if the title is correct.
-```
+```python
 def test_title_is_correct(self):
     print("Checking if title is correct.")
     driver = self.driver
