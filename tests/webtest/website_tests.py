@@ -9,12 +9,6 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 
 
-# Get the LAN ip from the system hostname command
-# strip it of it's newline and split the ip addresses
-# The first IP address will be the one we need, the others are gateways
-local_ip = check_output(['hostname', '--all-ip-addresses']).decode().strip().split(" ")[0]
-
-WEBSITE_URL = "http://{}:8080/".format(local_ip)
 
 # Trace memory allocations in case of errors
 tracemalloc.start()
@@ -22,8 +16,12 @@ tracemalloc.start()
 class WebsiteTest(unittest.TestCase):
     
     def setUp(self):
-        global WEBSITE_URL
-        self.WEBSITE_URL = WEBSITE_URL
+        # Get the LAN ip from the system hostname command
+        # strip it of it's newline and split the ip addresses
+        # The first IP address will be the one we need, the others are gateways
+        local_ip = check_output(['hostname', '--all-ip-addresses']).decode().strip().split(" ")[0]
+
+        self.WEBSITE_URL = "http://{}:8080/".format(local_ip)
 
 
         self.driver = webdriver.Remote(
@@ -66,5 +64,4 @@ class WebsiteTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    print("hostname: "+local_ip)
     unittest.main()
