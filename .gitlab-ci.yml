@@ -1,4 +1,4 @@
-image: pluppen/auto-selenium-python:1.0
+image: pluppen/auto-selenium-python:latest
 
 stages:
   - test
@@ -35,8 +35,6 @@ e2e:website-test:
       alias: selenium_firefox
   before_script:
     - pip3 install selenium==4.0.0a6.post2 requests
-    - apt update
-    - apt install php7.3 -yqq
   script:
     - php -S 0.0.0.0:8080 -t public public/index.html & 
     - python3 ./ci/scripts/webtest/website_tests.py
