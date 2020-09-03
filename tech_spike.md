@@ -17,6 +17,6 @@ to decide which one to use to host our website.
 ## DigitalOcean
 
 ### Pros
-
++ Support dynamic websites
 
 ### Cons
