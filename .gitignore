@@ -1,3 +1,4 @@
 build/
 tests/screenshots
 tests/logs
+tests/geckodriver.log

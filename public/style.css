@@ -15,5 +15,6 @@ html, body {
     }
     .title {
         font-family: 'Merriweather', serif;
+        text-align: center;
     }
 }
