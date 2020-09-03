@@ -13,7 +13,7 @@ class ScreenshotTest():
         # Selects the correct geckodriver based on OS
         drivername = "/geckodriver.exe" if os.name == 'nt' else "/geckodriver"
         pathtodriver = os.path.dirname(os.path.realpath(__file__)) + drivername
-        self.driver = webdriver.Firefox(executable_path=pathtodriver, desired_capabilities=desired_capabilities=webdriver.DesiredCapabilities.FIREFOX)
+        self.driver = webdriver.Firefox(executable_path=pathtodriver, desired_capabilities=webdriver.DesiredCapabilities.FIREFOX)
 
         self.WEBSITE_URL = f"file://{os.path.dirname(os.path.realpath(__file__))}/../public/index.html"
         
