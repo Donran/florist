@@ -6,9 +6,14 @@ import requests
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+
+
+local_ip = __import__("subprocess").check_output(['hostname', '--all-ip-addresses']).decode().strip().split(" ")[0]
 
 #!!!! TESTAR TEMPORÄRT NTI FÖR ATT FÖRSTÅ SELENIUM MED CI!!!!!!
-WEBSITE_URL = "https://www.ntigymnasiet.se/uppsala/"
+#WEBSITE_URL = "https://www.ntigymnasiet.se/uppsala/"
+WEBSITE_URL = "http://{}:8080/".format(local_ip)
 
 tracemalloc.start()
 
@@ -18,18 +23,10 @@ class WebsiteTest(unittest.TestCase):
         global WEBSITE_URL
         self.WEBSITE_URL = WEBSITE_URL
 
-        self.username = "elias.juremalm@elev.ga.ntig.se"
-        self.authkey = "u84bc8cf893b9973"
-
-        caps = {}
-        caps['browserName'] = 'Firefox'
-        caps['version'] = 'Latest'
-        caps['platform'] = 'Headless'
-        caps['screenResolution'] = '1920x1080'
 
         self.driver = webdriver.Remote(
-           desired_capabilities=caps,
-           command_executor=f"http://{self.username}:{self.authkey}@hub-cloud.crossbrowsertesting.com:80/wd/hub"
+           desired_capabilities=webdriver.DesiredCapabilities.FIREFOX,
+           command_executor=f"http://selenium_firefox:4444/wd/hub"
         )
 
         self.driver.implicitly_wait(20)
@@ -41,7 +38,7 @@ class WebsiteTest(unittest.TestCase):
         validText = "ALLA ÄR MED OCH UTVECKLAS"
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        elem = driver.find_element_by_class_name('title-xl')
+        elem = driver.find_element(By.CLASS_NAME, "title-xl")
         print("Checking if text exist and is correct...")
         self.assertEqual(elem.text, validText)
 
@@ -67,4 +64,5 @@ class WebsiteTest(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    print("hostname: "+local_ip)
     unittest.main()

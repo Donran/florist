@@ -2,17 +2,15 @@ image: pluppen/auto-selenium-python:1.0
 
 stages:
   - test
+  - deploy
 
 pages:
+  stage: deploy
   script:
     - echo "helo"
   artifacts:
     paths:
       - public
-  only:
-    changes:
-      - "public/**/*.css"
-      - "public/**/*.html"
 
 html_validator:
   stage: test
@@ -30,11 +28,17 @@ css_validator:
     changes:
       - "public/**/*.css"
 
-website-test:
+e2e:website-test:
   stage: test
+  services:
+    - name: selenium/standalone-firefox
+      alias: selenium_firefox
   before_script:
-    - pip3 install selenium requests
+    - pip3 install selenium==4.0.0a6.post2 requests
+    - apt update
+    - apt install php7.3 -yqq
   script:
+    - php -S 0.0.0.0:8080 -t public public/index.html & 
     - python3 ./ci/scripts/webtest/website_tests.py
   only:
     changes:
