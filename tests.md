@@ -61,3 +61,32 @@ Note: We used the regular form for the CSS validator because the API wasn't to o
 ./html_validator.sh public # public is the root path for the website
 ./css_validator.sh public # public is the root path for the website
 ```
+
+# Screenshot Tests
+
+The screenshot tests are run with selenium in the python script `screenshots.py`
+
+In the setUp function theres a list with resolutions
+```python
+# Different screenshot resolutions
+self.resolutions = [
+    [1024, 768], 
+    [1280, 800], 
+    [1360, 768], 
+    [1366, 768], 
+    [1440, 900], 
+    [1600, 900], 
+    [1680, 1050],
+    [1920, 1080],
+    [360, 740],
+    [480, 853],
+    [414, 896],
+    [768, 1024]
+]
+```
+These are the resolutions that the screenshots will be taken in. You can add your own resolution by adding a list to the resolutions list with this format `[<width>, <height>]`
+
+## Running the test
+To run the test you should run the `screenshots.py` script
+
+Note: You will need firefox installed to run the script.

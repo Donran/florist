@@ -42,7 +42,7 @@ class ScreenshotTest():
             width = resolution[0]
             height = resolution[1]
             driver.set_window_size(width, height, driver.window_handles[0])
-            driver.get_screenshot_as_file(f"tests/screenshots/screenshot-{width}x{height}.png")
+            driver.get_screenshot_as_file(f"{os.path.dirname(os.path.realpath(__file__))}/screenshots/screenshot-{width}x{height}.png")
 
         sleep(1)
 
