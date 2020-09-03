@@ -3,19 +3,21 @@
 ## Test system documentation can be found at:
 [Test System Documentation](https://gitlab.com/the-travelling-salesmen/florist/-/blob/master/tests.md)
 
-## Programmeringsspråk
+## Programming languages
 
 
 #### HTML
 #### CSS
-#### JavaScript med JQuery
+#### JavaScript /w JQuery
+#### Python (tests)
+#### Bash (CI scripts)
 
 
 
-## Utvecklingsmiljöstandard
+## Development Environment Standard
 
 #### Editor 
-**Valfri**
+**Your favorite editor**
 
 #### Browser 
 **Firefox/Chromium**
@@ -23,54 +25,51 @@
 #### OS 
 **Linux: Ubuntu 20.04.1 LTS**
 
-För att kunna köra testerna måste ett par paket vara installerade.
+To run the static code validation tests locally you need to install some dependencies:
 `apt update -qq && apt install -yqq jq`
 
 
 
-## Kodningsstandard
+## Coding Conventions
 
-#### Kod
-+ K&R indentering om inget annat har specificerats
-+ 4 spaces ska användas vid indentering
-+ Om det är delar som är komplicerade, ska de vara extra kommenterade utöver dokumentationen.
-+ Koden ska vara städad, t.ex. ingen gammal kod i kommentarer.
-+ Övrig “officiell” kodningsstandard ska också följas
+#### General code
++ K&R identation standard if nothing else is specified.
++ 4 spaces are to be used for identation.
++ Complicated sections in the code shall be commented in addition to documentation.
++ All code shall be clean, no old code shall be left in comments.
++ Any "official" coding conventions for the used language shall be followed.
 #### CSS
-+ Onödiga statements ska tas bort, se till att det inte finns något som blir överskrivet och sedan bara ligger kvar.
 + kebab-case
-+ Om det går, undvik !important
-+ Ska vara bra strukturerat
-+ Tydliga klass/id-namn
-+ Börja med mobilstorlek och jobba uppåt
++ Unnecessary rules shall be removed, no overwritten rules shall remain in the code.
++ When possible, avoid !important.
++ Code shall be structured in a readable way.
++ Distinct class/id-names.
++ Start working from mobile viewport and work upwards.
 #### HTML
-+ Validering (Ska utföras av automatiska tester)
-+ Självstängande HTML taggar ska ha ett slash i slutet.
-+ Indentering i öppnade taggar
++ Shall validate (Done by CI on pushed commits).
++ Self-closing HTML tags shall have a slash at the end.
++ Use indentation in open tags.
 #### JavaScript
 + camelCase
-+ Nyare standard ska användas, t.ex. let, const
-+ jQuery ska oftast användas för att minska kod och göra den effektiv.
-+ När typerna är säkra ska triple equals användas
-+ Nyare sättet för anonyma funktioner ska användas (Arrow functions)
-
++ The new standards shall be followed, for example, let/const, new arrow functions.
++ jQuery shall be used to minimize code and make it more effective.
++ When types are specified, type-safe comparison shall be used.
 
 
 ## Definition of Done 
 
-#### Generellt
-+ Allt som görs ska på något sätt kunna presenteras.
-#### Dokument
-+ Alla har läst igenom, förstår och håller med.
-+ Dokumenten ska vara kompletta, ska täcka hela backloggen i skrivandes stund.
-#### Kod
-+ Tester ska vara skrivna och gröna
-+ Kodningsstandard & programmeringsspråk dokumenten ska följas.
-+ Alla ska ha läst igenom koden och dokumentation samt förstå dessa.
-+ Om de behövs, ska användartester ha genomförts.
-+ Klappa kapitalist-robin och be om förlåtelse för koden
+#### General
++ Everything shall be presentable.
+#### Documents
++ All team members shall read all documents and agree on them and any changes.
++ All documents shall be complete, and cover the whole sprint.
+#### Code
++ Tests shall be written and passing.
++ Coding conventions and programming languages documents shall be followed.
++ All team members shall read the code and documentation and understand them.
++ If needed, QA shall be preformed.
++ Pat Capitalist-Robin and ask for forgiveness for the awful code.
 #### Versionshantering 
-+ Alla CI/CD verktyg som behövs ska vara aktiverade
++ All CI/CD tools shall work.
   + Static code analysis
   + Automatic tests
-  + Static Application Security Testing (SAS
