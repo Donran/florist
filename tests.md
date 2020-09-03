@@ -33,9 +33,18 @@ def test_title_is_correct(self):
 ```
 
 
-Now the test is implemented and will be run.
+Now the test is implemented and will be run on CI.
 
+## Running tests
 
+To run a test locally, simply run the following command
+`gitlab-runner exec docker <testname>`
+
+\<testname\> is to be replaced with the tests name in the CI file, for example e2e:website-test or html_validator
+To find out more about gitlab-runner, please visit their documentation [here](https://docs.gitlab.com/runner/)
+You will also need docker installed, and you can find their documentation [here](https://docs.docker.com/)
+
+All these tests will be run when code is pushed.
 
 # Static code validation
 

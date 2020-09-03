@@ -73,3 +73,11 @@ To run the static code validation tests locally you need to install some depende
 + All CI/CD tools shall work.
   + Static code analysis
   + Automatic tests
+
+
+## CI
+
+### Tests
++ All tests specified in `.gitlab-ci.yml` will be run on pushed code, assuming that files related to the test have been changed.
+### Pages
++ GitLab pages will be automatically deployed on successful CI tests.
