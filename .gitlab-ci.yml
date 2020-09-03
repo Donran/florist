@@ -19,7 +19,7 @@ pages:
 html_validator:
   stage: test
   script:
-    - ./ci/scripts/validate/html_validator.sh public
+    - ./tests/validate/html_validator.sh public
   only:
     changes:
       - "public/**/*.html"
@@ -27,7 +27,7 @@ html_validator:
 css_validator:
   stage: test
   script:
-    - ./ci/scripts/validate/css_validator.sh public
+    - ./tests/validate/css_validator.sh public
   only:
     changes:
       - "public/**/*.css"
@@ -41,7 +41,7 @@ e2e:website-test:
     - pip3 install selenium==4.0.0a6.post2 requests
   script:
     - php -S 0.0.0.0:8080 -t public public/index.html & 
-    - python3 ./ci/scripts/webtest/website_tests.py
+    - python3 ./tests/webtest/website_tests.py
   only:
     changes:
       - "public/**/*.css"
