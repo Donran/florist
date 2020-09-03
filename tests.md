@@ -34,3 +34,21 @@ def test_title_is_correct(self):
 
 
 Now the test is implemented and will be run.
+
+
+
+# Static code validation
+
+## Useful links
+- [W3C HTML validator](https://validator.w3.org/)
+- [W3C HTML validator API](https://github.com/validator/validator/wiki/Service-%C2%BB-Input-%C2%BB-POST-body)
+- [W3C CSS validator](https://jigsaw.w3.org/css-validator/)
+- [W3C CSS validator API](https://jigsaw.w3.org/css-validator/api.html)
+Note: We used the regular form for the CSS validator because the API wasn't to our liking
+
+
+## Using the validators
+```bash
+./html_validator.sh public # public is the root path for the website
+./css_validator.sh public # public is the root path for the website
+```
