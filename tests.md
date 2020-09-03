@@ -2,7 +2,7 @@
 
 ## Useful links
 - [Unittest cheat sheet](https://kapeli.com/cheat_sheets/Python_unittest_Assertions.docset/Contents/Resources/Documents/index)
-- [Selenium locating elements](https://selenium-python.readthedocs.io/locating-elements.html)
+- [Selenium locating elements](https://selenium-python.readthedocs.io/locating-elements.html) (Note: We're using a pre-release of selenium that selects elements differently)
 - [Navigating in selenium](https://selenium-python.readthedocs.io/navigating.html)
 
 ## Adding a Test
