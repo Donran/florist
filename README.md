@@ -1,5 +1,8 @@
 # Florist
 
+## Test system documentation can be found at:
+[Test System Documentation](https://gitlab.com/the-travelling-salesmen/florist/-/blob/master/tests.md)
+
 ## Programmeringsspråk
 
 
@@ -67,7 +70,7 @@ För att kunna köra testerna måste ett par paket vara installerade.
 + Om de behövs, ska användartester ha genomförts.
 + Klappa kapitalist-robin och be om förlåtelse för koden
 #### Versionshantering 
-**Alla CI/CD verktyg som behövs ska vara aktiverade**
-+ Static code analysis
-+ Automatic tests
-+ Static Application Security Testing (SAS
++ Alla CI/CD verktyg som behövs ska vara aktiverade
+  + Static code analysis
+  + Automatic tests
+  + Static Application Security Testing (SAS
