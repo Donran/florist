@@ -35,10 +35,10 @@ class WebsiteTest(unittest.TestCase):
     # Test som kollar om hemsidan innehåller en
     # <h1 class="title"> med texten "Välkommen till Floristgården!"
     def test_text_exist(self):
-        validText = "ALLA ÄR MED OCH UTVECKLAS"
+        validText = "Välkommen till Floristgården!"
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        elem = driver.find_element(By.CLASS_NAME, "title-xl")
+        elem = driver.find_element(By.CLASS_NAME, "title")
         print("Checking if text exist and is correct...")
         self.assertEqual(elem.text, validText)
 
@@ -47,7 +47,7 @@ class WebsiteTest(unittest.TestCase):
     def test_title_exist(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        validTitle = "NTI"
+        validTitle = "Floristgården"
         print("Checking if title is correct.")
         self.assertIn(validTitle, driver.title) 
     
