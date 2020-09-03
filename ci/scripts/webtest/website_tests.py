@@ -3,18 +3,20 @@ import unittest
 import os
 import tracemalloc
 import requests
+from subprocess import check_output
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 
 
-local_ip = __import__("subprocess").check_output(['hostname', '--all-ip-addresses']).decode().strip().split(" ")[0]
+# Get the LAN ip from the system hostname command
+# strip it of it's newline and split the ip addresses
+# The first IP address will be the one we need, the others are gateways
+local_ip = check_output(['hostname', '--all-ip-addresses']).decode().strip().split(" ")[0]
 
-#!!!! TESTAR TEMPORÄRT NTI FÖR ATT FÖRSTÅ SELENIUM MED CI!!!!!!
-#WEBSITE_URL = "https://www.ntigymnasiet.se/uppsala/"
 WEBSITE_URL = "http://{}:8080/".format(local_ip)
 
+# Trace memory allocations in case of errors
 tracemalloc.start()
 
 class WebsiteTest(unittest.TestCase):
