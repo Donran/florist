@@ -11,12 +11,20 @@ to decide which one to use to host our website.
 + It is free to use. 
 
 ### Cons
-+ Does not support dynamic websites.
++ Does not support dynamic server-side processing.
 
 
 ## DigitalOcean
 
 ### Pros
-+ Support dynamic websites
++ Supports dynamic server-side processing. 
++ Would allow our tests to be faster and not limited. 
++ Would serve as a learning oppurtunity, for example webservers, CD, and Linux. 
 
 ### Cons
++ Is not free to use. (Note: With GitHub Student Pack you have access to a $50 voucher.)
+
+
+
+## Verdict
+We went with GitLab Pages because it's easy-to-use nature was all we needed currently for our project.
