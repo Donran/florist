@@ -27,5 +27,4 @@ to decide which one to use to host our website.
 
 
 ## Verdict
-We went with GitLab Pages because it's easy-to-use nature was a perfect fit 
-for the current stage in our project. 
+We went with GitLab Pages because it's easy-to-use nature was a perfect fit for the current stage in our project. 
