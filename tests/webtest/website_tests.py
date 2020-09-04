@@ -47,7 +47,7 @@ class WebsiteTest(unittest.TestCase):
     def test_title_exist(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        validTitle = "Floristgården"
+        validTitle = "Floristgåååååården"
         print("Checking if title is correct.")
         self.assertIn(validTitle, driver.title) 
     
