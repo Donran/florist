@@ -14,7 +14,7 @@ from selenium.webdriver.common.by import By
 # tracemalloc will close it for us!
 tracemalloc.start()
 
-class WebsiteTest(unittest.TestCase):
+class BaiscTest(unittest.TestCase):
 
     def setUp(self):
         # Get the LAN ip from the system hostname command
@@ -66,6 +66,82 @@ class WebsiteTest(unittest.TestCase):
     def tearDown(self):
         self.driver.quit()
 
+
+class InformationTest(unittest.TestCase):
+    
+    def setUp(self):
+        # Get the LAN ip from the system hostname command
+        # strip it of it's newline and split the ip addresses
+        # The first IP address will be the one we need, the others are gateways
+        # This is needed because we need to be able to give the standalone firefox service
+        # the ip address of the container running this script.
+        local_ip = check_output(['hostname', '--all-ip-addresses']).decode().strip().split(" ")[0]
+
+        self.WEBSITE_URL = "http://{}:8080/".format(local_ip)
+
+
+        self.driver = webdriver.Remote(
+           desired_capabilities=webdriver.DesiredCapabilities.FIREFOX,
+           command_executor=f"http://selenium_firefox:4444/wd/hub"
+        )
+
+        # Waits for the driver to be setup.
+        self.driver.implicitly_wait(20)
+    
+    # Tests if website contains address information
+    def test_address_found(self):
+        driver = self.driver
+        driver.get(self.WEBSITE_URL)
+        address = "Fjällgatan 32H 981 39 KIRUNA"
+        
+        print("Checking if address is found on website...")
+        
+        try:
+            driver.find_element(By.PARTIAL_LINK_TEXT, address)
+        except NoSuchElementException:
+            self.fail("No address found")
+
+
+    # Tests if website contains opening hours
+    def test_opening_hours_found(self):
+        driver = self.driver
+        driver.get(self.WEBSITE_URL)
+
+        open_hours = ['Måndagar 10-16', 'Tisdagar 10-16', 'Onsdagar 10-16', 'Torsdagar 10-16', 'Fredagar 10-16', 'Lördagar 12-15']
+
+        opening_hours_elems = driver.find_elements(By.CLASS_NAME, "opening-hour")
+
+        if(len(opening_hours_elems) > 0):
+            for open_hour, index in opening_hours_elems:
+                self.assertEqual(open_hour.text, open_hours[index])
+        else:
+            self.fail("No opening hours found")
+
+    # Tests if website contains email and phonenumber
+    def test_email_and_phonenumber_found(self):
+        driver = self.driver
+        driver.get(self.WEBSITE_URL)
+
+        email = "info@DOMÄN"
+        phonenumber = "0630-555-555"
+
+        print("Checking if email is found on website...")
+
+        try:
+            driver.find_element(By.PARTIAL_LINK_TEXT, email)
+        except NoSuchElementException:
+            self.fail("No email found")
+
+        print("Checking if phonenumber is found on website...")
+
+        try:
+            driver.find_element(By.PARTIAL_LINK_TEXT, phonenumber)
+        except NoSuchElementException:
+            self.fail("No phonenumber found")        
+
+
+    def tearDown(self):
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()
