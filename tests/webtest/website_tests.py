@@ -10,7 +10,8 @@ from selenium.webdriver.common.by import By
 
 
 
-# Trace memory allocations in case of errors
+# Trace memory allocations in case if a file is not closed
+# tracemalloc will close it for us!
 tracemalloc.start()
 
 class WebsiteTest(unittest.TestCase):
@@ -29,6 +30,7 @@ class WebsiteTest(unittest.TestCase):
            command_executor=f"http://selenium_firefox:4444/wd/hub"
         )
 
+        # Waits for the driver to be setup.
         self.driver.implicitly_wait(20)
 
 
