@@ -8,8 +8,8 @@
 
 
 ## Business hours and contact information
-### Mondays 10-16
-### Tuesdays 10-16
+Mondays 10-16
+Tuesdays 10-16
 ### Wednesdays 10-16
 ### Thursdays 10-16
 ### Fridays 10-16
