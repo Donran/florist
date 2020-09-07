@@ -43,7 +43,8 @@ e2e:website-test:
   script:
     - lessc less/main.less public/css/style.css
     - php -S 0.0.0.0:8080 -t public public/index.html &
-    - python3 ./tests/webtest/website_tests.py
+    - cd tests/webtest
+    - python3 -m unittest
   only:
     changes:
       - "public/**/*"
