@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap');
+
 
 html, body {
     margin: 0;
@@ -14,7 +14,7 @@ html, body {
         width: 100%;
     }
     .title {
-        font-family: 'Merriweather', serif;
+        fontFamily: 'Merriweather', serif;
         text-align: center;
     }
 }

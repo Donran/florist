@@ -5,6 +5,12 @@
 - [Selenium locating elements](https://selenium-python.readthedocs.io/locating-elements.html) (Note: We're using a pre-release of selenium that selects elements differently)
 - [Navigating in selenium](https://selenium-python.readthedocs.io/navigating.html)
 
+## Information regarding docker
+We use our own docker image in our test environment. We download it from dockerhub.
+You can learn how to make your own docker image over at their [documentation](https://docs.docker.com/get-started/).
+
+Our docker image contains: python, curl, jq, php.
+
 ## Adding a Test
 
 Begin by opening the `website_tests.py` file.

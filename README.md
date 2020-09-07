@@ -35,6 +35,7 @@ To run the static code validation tests locally you need to install some depende
 #### General code
 + K&R identation standard if nothing else is specified.
 + 4 spaces are to be used for identation.
++ LF is to be used for line breaks. 
 + Complicated sections in the code shall be commented in addition to documentation.
 + All code shall be clean, no old code shall be left in comments.
 + Any "official" coding conventions for the used language shall be followed.
@@ -45,6 +46,7 @@ To run the static code validation tests locally you need to install some depende
 + Code shall be structured in a readable way.
 + Distinct class/id-names.
 + Start working from mobile viewport and work upwards.
++ All CSS shall be written in external style sheets. 
 #### HTML
 + Shall validate (Done by CI on pushed commits).
 + Self-closing HTML tags shall have a slash at the end.
@@ -54,6 +56,7 @@ To run the static code validation tests locally you need to install some depende
 + The new standards shall be followed, for example, let/const, new arrow functions.
 + jQuery shall be used to minimize code and make it more effective.
 + When types are specified, type-safe comparison shall be used.
+
 
 
 ## Definition of Done 
@@ -71,9 +74,17 @@ To run the static code validation tests locally you need to install some depende
 + Pat Capitalist-Robin and ask for forgiveness for the awful code.
 
 
+
 ## CI
 
 ### Tests
 + All tests specified in `.gitlab-ci.yml` will be run on pushed code, assuming that files related to the test have been changed.
 ### Pages
 + GitLab pages will be automatically deployed on successful CI tests.
+
+
+
+## Copyright
+
+### Fonts
+All fonts used on our website are provided by [Google Fonts](https://fonts.google.com/), whose fonts are free and open source. 
