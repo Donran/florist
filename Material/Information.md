@@ -1,9 +1,9 @@
 # Information for the website Floristgården
 
 ## Social medias 
-### facebook.com/ntiuppsala
-### instagrom.com/ntiuppsala
-### twitter.com/ntiuppsala
+facebook.com/ntiuppsala  
+instagrom.com/ntiuppsala  
+twitter.com/ntiuppsala  
 
 
 
