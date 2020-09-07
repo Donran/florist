@@ -2,7 +2,7 @@
 
 ## Social medias 
 facebook.com/ntiuppsala  
-instagrom.com/ntiuppsala  
+instagram.com/ntiuppsala  
 twitter.com/ntiuppsala  
 
 
