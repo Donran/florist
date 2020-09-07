@@ -3,3 +3,5 @@ tests/screenshots
 tests/logs
 tests/geckodriver.log
 geckodriver.log
+
+public/css/*
