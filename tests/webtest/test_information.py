@@ -58,7 +58,7 @@ class InformationTest(WebTestBase.BaseTest):
         validText = "Välkommen till Floristgården"
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        elem = driver.find_element(By.CLASS_NAME, "title")
+        elem = driver.find_element(By.CLASS_NAME, "display-4")
         self.assertEqual(validText, elem.text)
 
 
