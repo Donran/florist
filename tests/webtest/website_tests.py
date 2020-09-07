@@ -15,7 +15,7 @@ from selenium.webdriver.common.by import By
 tracemalloc.start()
 
 class WebsiteTest(unittest.TestCase):
-    
+
     def setUp(self):
         # Get the LAN ip from the system hostname command
         # strip it of it's newline and split the ip addresses
@@ -27,7 +27,7 @@ class WebsiteTest(unittest.TestCase):
 
         self.driver = webdriver.Remote(
            desired_capabilities=webdriver.DesiredCapabilities.FIREFOX,
-           command_executor=f"http://selenium_firefox:4444/wd/hub"
+           command_executor=f"http://selenium-firefox:4444/wd/hub"
         )
 
         # Waits for the driver to be setup.
@@ -51,10 +51,10 @@ class WebsiteTest(unittest.TestCase):
         driver.get(self.WEBSITE_URL)
         validTitle = "Floristgåååååården"
         print("Checking if title is correct.")
-        self.assertIn(validTitle, driver.title) 
-    
+        self.assertIn(validTitle, driver.title)
 
-    # Test som kollar ifall hemsidan är fungerande och 
+
+    # Test som kollar ifall hemsidan är fungerande och
     # tillgänglig från internet.
     def test_website_up_and_running(self):
         response = requests.get(self.WEBSITE_URL)
