@@ -15,8 +15,8 @@ pages:
       - public
   only:
     changes:
-      - "public/**"
-      - "less/**"
+      - "public/**/*"
+      - "less/**/*"
 
 static_validation:
   stage: test
@@ -28,8 +28,8 @@ static_validation:
     - ./tests/validate/html_validator.sh public
   only:
     changes:
-      - "public/**"
-      - "less/**"
+      - "public/**/*"
+      - "less/**/*"
 
 
 e2e:website-test:
@@ -46,5 +46,5 @@ e2e:website-test:
     - python3 ./tests/webtest/website_tests.py
   only:
     changes:
-      - "public/**"
-      - "less/**"
+      - "public/**/*"
+      - "less/**/*"
