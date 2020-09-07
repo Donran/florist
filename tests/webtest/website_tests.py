@@ -37,7 +37,7 @@ class BasicTest(unittest.TestCase):
     # Test som kollar om hemsidan innehåller en
     # <h1 class="title"> med texten "Välkommen till Floristgården!"
     def test_text_exist(self):
-        validText = "Välkommen till Floristgården!"
+        validText = "Välkommen till Floristgården"
         driver = self.driver
         driver.get(self.WEBSITE_URL)
         elem = driver.find_element(By.CLASS_NAME, "display-4")
@@ -102,10 +102,12 @@ class InformationTest(unittest.TestCase):
     def test_opening_hours_found(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        open_hours = "Måndagar 10-16 Tisdagar 10-16 Onsdagar 10-16 Torsdagar 10-16 Fredagar 10-16 Lördagar 12-15"
-        open_hours_arr = open_hours.split(" ")
-        print(open_hours_arr)
-        oh_elem = driver.find_element(By.XPATH, '//button[text()="Some text"]')
+
+        open_hours = ['Måndagar 10-16', 'Tisdagar 10-16', 'Onsdagar 10-16', 'Torsdagar 10-16', 'Fredagar 10-16', 'Lördagar 12-15']
+        opening_hours_elems = driver.find_elements(By.XPATH, "//button[@class='opening-hours']/*")
+
+        for open_hour, index in opening_hours_elems:
+            self.assertEqual(open_hour.text, open_hours[index])
 
     # Tests if website contains email and phonenumber
     def test_email_and_phonenumber_found(self):
