@@ -40,7 +40,7 @@ class BaiscTest(unittest.TestCase):
     # Test som kollar om hemsidan innehåller en
     # <h1 class="title"> med texten "Välkommen till Floristgården!"
     def test_text_exist(self):
-        validText = "Välkommen till Floristgården!"
+        validText = "Välkommen till Floristgården"
         driver = self.driver
         driver.get(self.WEBSITE_URL)
         elem = driver.find_element(By.CLASS_NAME, "title")
@@ -52,7 +52,7 @@ class BaiscTest(unittest.TestCase):
     def test_title_exist(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        validTitle = "Floristgåååååården"
+        validTitle = "Floristgården"
         print("Checking if title is correct.")
         self.assertIn(validTitle, driver.title)
 
