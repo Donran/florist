@@ -86,4 +86,4 @@ To run the static code validation tests locally you need to install some depende
 ## Copyright
 
 ### Fonts
-All fonts used on our website are provided by [Google Fonts](https://fonts.google.com/) which are free and open source. 
+All fonts used on our website are provided by [Google Fonts](https://fonts.google.com/), whose fonts are free and open source. 
