@@ -45,6 +45,7 @@ To run the static code validation tests locally you need to install some depende
 + Code shall be structured in a readable way.
 + Distinct class/id-names.
 + Start working from mobile viewport and work upwards.
++ All CSS shall be written in external style sheets. 
 #### HTML
 + Shall validate (Done by CI on pushed commits).
 + Self-closing HTML tags shall have a slash at the end.
