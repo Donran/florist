@@ -30,6 +30,7 @@ static_validation:
     changes:
       - "public/**/*"
       - "less/**/*"
+      - "tests/validate/*"
 
 
 e2e:website-test:
@@ -49,3 +50,4 @@ e2e:website-test:
     changes:
       - "public/**/*"
       - "less/**/*"
+      - "tests/webtest/*"
