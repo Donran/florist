@@ -123,12 +123,13 @@ class InformationTest(unittest.TestCase):
         phonenumber = "0630-555-555"
 
         print("Checking if email is found on website...")
-        print("Checking if phonenumber is found on website...")
 
         try:
             driver.find_element(By.PARTIAL_LINK_TEXT, email)
         except NoSuchElementException:
             self.fail("No email found")
+
+        print("Checking if phonenumber is found on website...")
 
         try:
             driver.find_element(By.PARTIAL_LINK_TEXT, phonenumber)
