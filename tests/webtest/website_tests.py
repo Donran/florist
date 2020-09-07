@@ -27,7 +27,7 @@ class WebsiteTest(unittest.TestCase):
 
         self.driver = webdriver.Remote(
            desired_capabilities=webdriver.DesiredCapabilities.FIREFOX,
-           command_executor=f"http://selenium-firefox:4444/wd/hub"
+           command_executor=f"http://selenium_firefox:4444/wd/hub"
         )
 
         # Waits for the driver to be setup.
