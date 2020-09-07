@@ -14,7 +14,7 @@ html, body {
         width: 100%;
     }
     .title {
-        fontFamily: 'Merriweather', serif;
+        font-family: 'Merriweather', serif;
         text-align: center;
     }
 }
