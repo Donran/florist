@@ -35,6 +35,7 @@ To run the static code validation tests locally you need to install some depende
 #### General code
 + K&R identation standard if nothing else is specified.
 + 4 spaces are to be used for identation.
++ LF is to be used for line breaks. 
 + Complicated sections in the code shall be commented in addition to documentation.
 + All code shall be clean, no old code shall be left in comments.
 + Any "official" coding conventions for the used language shall be followed.
