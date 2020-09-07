@@ -57,6 +57,7 @@ To run the static code validation tests locally you need to install some depende
 + When types are specified, type-safe comparison shall be used.
 
 
+
 ## Definition of Done 
 
 #### General
@@ -72,9 +73,17 @@ To run the static code validation tests locally you need to install some depende
 + Pat Capitalist-Robin and ask for forgiveness for the awful code.
 
 
+
 ## CI
 
 ### Tests
 + All tests specified in `.gitlab-ci.yml` will be run on pushed code, assuming that files related to the test have been changed.
 ### Pages
 + GitLab pages will be automatically deployed on successful CI tests.
+
+
+
+## Copyright
+
+### Fonts
+All fonts used on our website are provided by [Google Fonts](https://fonts.google.com/) which are free and open source. 
