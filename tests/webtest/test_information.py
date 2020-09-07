@@ -59,37 +59,7 @@ class InformationTest(WebTestBase.BaseTest):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
         elem = driver.find_element(By.CLASS_NAME, "title")
-
-            self.fail("No opening hours found")
-
-    # Tests if website contains email and phonenumber
-    def test_email_and_phonenumber_found(self):
-        driver = self.driver
-        driver.get(self.WEBSITE_URL)
-
-        email = "info@DOMÄN"
-        phonenumber = "0630-555-555"
-
-
-        try:
-            driver.find_element(By.PARTIAL_LINK_TEXT, email)
-        except NoSuchElementException:
-            self.fail("No email found")
-
-
-        try:
-            driver.find_element(By.PARTIAL_LINK_TEXT, phonenumber)
-        except NoSuchElementException:
-            self.fail("No phonenumber found")
-
-    # Test som kollar om hemsidan innehåller en
-    # <h1 class="title"> med texten "Välkommen till Floristgården!"
-    def test_text_exist(self):
-        validText = "Välkommen till Floristgården"
-        driver = self.driver
-        driver.get(self.WEBSITE_URL)
-        elem = driver.find_element(By.CLASS_NAME, "title")
-        self.assertEqual(elem.text, validText)
+        self.assertEqual(validText, elem.text)
 
 
     # Test som kollar om hemsidans title innehåller "Floristgården"
