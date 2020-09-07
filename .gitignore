@@ -5,3 +5,6 @@ tests/geckodriver.log
 geckodriver.log
 
 public/css/*
+
+__pycache__
+*.pyc
