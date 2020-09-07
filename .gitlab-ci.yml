@@ -36,6 +36,7 @@ e2e:website-test:
   stage: test
   services:
     - name: selenium/standalone-firefox
+      alias: selenium_firefox
   before_script:
     - pip3 install selenium==4.0.0a6.post2 requests
     - npm install -g less
