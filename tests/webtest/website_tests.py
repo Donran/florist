@@ -33,7 +33,6 @@ class BasicTest(unittest.TestCase):
 
         # Waits for the driver to be setup.
         self.driver.implicitly_wait(20)
- address_elem = driver.find_element(By.PARTIAL_LINK_TEXT, address)
 
     # Test som kollar om hemsidan innehåller en
     # <h1 class="title"> med texten "Välkommen till Floristgården!"
