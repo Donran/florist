@@ -1,5 +1,6 @@
 import WebTestBase
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 class InformationTest(WebTestBase.BaseTest):
 
     # Tests if website contains address information
@@ -25,8 +26,9 @@ class InformationTest(WebTestBase.BaseTest):
         opening_hours_elems = driver.find_elements(By.CLASS_NAME, "opening-hour")
 
         if(len(opening_hours_elems) > 0):
-            for open_hour, index in opening_hours_elems:
-                self.assertEqual(open_hour.text, open_hours[index])
+            for index in range(len(opening_hours_elems)):
+                open_hour_text = opening_hours_elems[index].get_attribute("innerHTML")
+                self.assertEqual(open_hour_text, open_hours[index])
         else:
             self.fail("No opening hours found")
 
@@ -56,8 +58,8 @@ class InformationTest(WebTestBase.BaseTest):
         validText = "Välkommen till Floristgården"
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        elem = driver.find_element(By.CLASS_NAME, "title")
-        self.assertEqual(elem.text, validText)
+        elem = driver.find_element(By.CLASS_NAME, "display-4")
+        self.assertEqual(validText, elem.text)
 
 
     # Test som kollar om hemsidans title innehåller "Floristgården"
