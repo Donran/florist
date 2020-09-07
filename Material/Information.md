@@ -8,16 +8,17 @@
 
 
 ## Business hours and contact information
-Mondays 10-16
-Tuesdays 10-16
+### Mondays 10-16
+### Tuesdays 10-16
 ### Wednesdays 10-16
 ### Thursdays 10-16
 ### Fridays 10-16
-### Saturdays 12-15
+### Saturdays 12-15<br>
 
 ### Fjällgatan 32H 981 39 KIRUNA
 ### 0630-555-555
 ### info@<DOMÄN>
+
 
 
 ## Closed days
@@ -29,6 +30,7 @@ Tuesdays 10-16
 ### Christmas Day 25 december
 ### Second Day of Christmas 26 december
 ### New Year's Eve 31 december
+
 
 
 ## Staff
