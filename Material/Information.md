@@ -7,14 +7,17 @@
 
 
 
-## Business hours and contact information
+## Business hours
 ### Mondays 10-16
 ### Tuesdays 10-16
 ### Wednesdays 10-16
 ### Thursdays 10-16
 ### Fridays 10-16
-### Saturdays 12-15<br>
+### Saturdays 12-15
 
+
+
+## Contact information
 ### Fjällgatan 32H 981 39 KIRUNA
 ### 0630-555-555
 ### info@<DOMÄN>
