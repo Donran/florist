@@ -105,13 +105,9 @@ class InformationTest(unittest.TestCase):
 
         open_hours = ['Måndagar 10-16', 'Tisdagar 10-16', 'Onsdagar 10-16', 'Torsdagar 10-16', 'Fredagar 10-16', 'Lördagar 12-15']
 
-        try:
-            opening_hours_elems = driver.find_elements(By.CLASS_NAME, "opening-hour")
-
-            for open_hour, index in opening_hours_elems:
-                self.assertEqual(open_hour.text, open_hours[index])
-        except NoSuchElementException:
-            self.fail("No openeing hours found.")
+        opening_hours_elems = driver.find_elements(By.CLASS_NAME, "opening-hour")
+        for open_hour, index in opening_hours_elems:
+            self.assertEqual(open_hour.text, open_hours[index])
 
 
     # Tests if website contains email and phonenumber
