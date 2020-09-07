@@ -119,7 +119,7 @@ class InformationTest(unittest.TestCase):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
 
-        email = "info@<DOMÄN>"
+        email = "info@DOMÄN"
         phonenumber = "0630-555-555"
 
         print("Checking if email is found on website...")
