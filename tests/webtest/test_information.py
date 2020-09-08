@@ -11,8 +11,7 @@ class InformationTest(WebTestBase.BaseTest):
 981 39 KIRUNA"""
 
         try:
-            address_elem = driver.find_element(By.PARTIAL_LINK_TEXT, address)
-            print(address_elem.text)
+            driver.find_element(By.PARTIAL_LINK_TEXT, address)
         except NoSuchElementException:
             self.fail("No address found")
 
