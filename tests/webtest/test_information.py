@@ -7,11 +7,11 @@ class InformationTest(WebTestBase.BaseTest):
     def test_address_found(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        address = "Fjällgatan 32H 981 39 KIRUNA"
-
+        address = "Fjällgatan 32H"
 
         try:
-            driver.find_element(By.PARTIAL_LINK_TEXT, address)
+            address_elem = driver.find_element(By.PARTIAL_LINK_TEXT, address)
+            print(address_elem.text)
         except NoSuchElementException:
             self.fail("No address found")
 
