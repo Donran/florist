@@ -15,7 +15,7 @@ class EmployeeTest(WebTestBase.BaseTest):
             "Örjan Johansson"
         ]
         for employee in employees:
-            name_on_site = employee.find_element("employee-name").text
+            name_on_site = employee.find_element(By.CLASS_NAME, "employee-name").text
             if name_on_site not in names:
-                self.fail("Could not find employee in list.")
-        
+                self.fail("Could not find employee in list: " + name_on_site)
+
