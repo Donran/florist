@@ -38,7 +38,7 @@ class ImagesTest(WebTestBase.BaseTest):
                     product_img = products[index].find_element(By.CLASS_NAME, "product-image")
 
                     self.assertEqual(name, expected_name)
-                    self.assertIn(str(price), expected_price)
+                    self.assertIn(expected_price, price)
                     self.assertEqual(product_id, expected_id)
         else:
             self.fail("No products found")
