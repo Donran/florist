@@ -26,16 +26,16 @@ class ImagesTest(WebTestBase.BaseTest):
             if(len(products) < 7):
                 self.fail("Not all products could be found.")
             else:
-                for product, index in products:
+                for index in range(len(products)):
                     expected_product = expected_products[index]
                     expected_name = expected_product[0]
                     expected_price = expected_product[1]
                     expected_id = expected_product[2]
 
-                    name = product.find_element(By.CLASS_NAME, "product-name")
-                    price = product.find_element(By.CLASS_NAME, "price")
-                    product_id = product.get_attribute("id")
-                    product_img = product.find_element(By.CLASS_NAME, "product-image")
+                    name = products[index].find_element(By.CLASS_NAME, "product-name")
+                    price = products[index].find_element(By.CLASS_NAME, "price")
+                    product_id = products[index].get_attribute("id")
+                    product_img = products[index].find_element(By.CLASS_NAME, "product-image")
 
                     self.assertEqual(name, expected_name)
                     self.assertEqual(price, expected_price)
