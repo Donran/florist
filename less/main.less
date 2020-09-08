@@ -1,3 +1,7 @@
+@footer-bg-color: #212529;
+@footer-dark-bg-color: #343a40;
+@footer-text-color: #FFF;
+
 html, body {
     margin: 0;
     padding: 0;
@@ -29,15 +33,9 @@ html, body {
     }
 
     .employee-list {
-        width:95%;
-        margin:0 auto;
-        text-align:center;
         > .employee {
             text-align:center;
-            margin: 0 auto;
-            width:205px;
-            float:left;
-            display:table;
+            width: 18rem;
             > .employee-img {
                 margin: 0 auto;
                 width:200px;
@@ -48,5 +46,35 @@ html, body {
             }
         }
         overflow:hidden;
+    }
+
+    .footer {
+        background-color: @footer-bg-color;
+        padding: 0px;
+        .list-group-item {
+            color: @footer-text-color;
+            background-color: @footer-bg-color;
+            padding-left: 0;
+            padding-right: 0;
+            padding-bottom: 0.4rem;
+            padding-top: 0.4rem;
+            a {
+                color: @footer-text-color;
+            }
+        }
+        h4 {
+            color: @footer-text-color;
+        }
+        p {
+            color: @footer-text-color;
+        }
+        .made-by-tsm {
+            background-color: @footer-dark-bg-color;
+            color: lightgray;
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
     }
 }
