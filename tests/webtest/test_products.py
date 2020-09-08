@@ -1,8 +1,8 @@
 import WebTestBase
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
-class ImagesTest(WebTestBase.BaseTest):
-    # Test to make sure all links are present
+class ProductTest(WebTestBase.BaseTest):
+    # Test to make sure all products are present
     def test_products(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
