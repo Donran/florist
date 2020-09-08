@@ -35,6 +35,7 @@ class ImagesTest(WebTestBase.BaseTest):
                     name = product.find_element(By.CLASS_NAME, "product-name")
                     price = product.find_element(By.CLASS_NAME, "price")
                     product_id = product.get_attribute("id")
+                    product_img = product.find_element(By.CLASS_NAME, "product-image")
 
                     self.assertEqual(name, expected_name)
                     self.assertEqual(price, expected_price)
