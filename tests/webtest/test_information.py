@@ -7,7 +7,8 @@ class InformationTest(WebTestBase.BaseTest):
     def test_address_found(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        address = "Fjällgatan 32H"
+        address = """Fjällgatan 32H
+981 39 KIRUNA"""
 
         try:
             address_elem = driver.find_element(By.PARTIAL_LINK_TEXT, address)
