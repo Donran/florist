@@ -59,7 +59,7 @@ class InformationTest(WebTestBase.BaseTest):
     # Test som kollar om hemsidan innehåller en
     # <h1 class="title"> med texten "Välkommen till Floristgården!"
     def test_text_exist(self):
-        validText = "Välkommen till Floristgården"
+        validText = "Välkommen till Floristgården!"
         driver = self.driver
         driver.get(self.WEBSITE_URL)
         elem = driver.find_element(By.CLASS_NAME, "display-4")
