@@ -13,13 +13,13 @@ class ProductTest(WebTestBase.BaseTest):
             # List with expected products, every list item is a product
             # Use this format [<product_name>, <product_price>, <product_id>]
             expected_products = [
-                ["Bröllopsbruketter", 1200, 4], 
-                ["Höstbukett", 400, 6], 
-                ["Sommarbukett", 200, 3], 
-                ["Rosor 10-pack", 150, 8], 
-                ["Tulpaner 10-pack", 100, 9], 
-                ["Konsultation 30 min", 250, 10], 
-                ["Begravningskrans", 800, 5]
+                ["Bröllopsbruketter", 1199, 4],
+                ["Höstbukett", 399, 6],
+                ["Sommarbukett", 199, 3],
+                ["Rosor 10-pack", 149, 8],
+                ["Tulpaner 10-pack", 99, 9],
+                ["Konsultation 30 min", 249, 10],
+                ["Begravningskrans", 799, 5]
             ]
 
             # Checks if the products are less than expected
