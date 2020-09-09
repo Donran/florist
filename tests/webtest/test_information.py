@@ -56,8 +56,8 @@ class InformationTest(WebTestBase.BaseTest):
         except NoSuchElementException:
             self.fail("No phonenumber found")
 
-    # Test som kollar om hemsidan innehåller en
-    # <h1 class="title"> med texten "Välkommen till Floristgården!"
+    # Tests if the website contains a <h1 class="title">
+    # with the text "Välkommen till Floristgården!"
     def test_text_exist(self):
         validText = "Välkommen till Floristgården!"
         driver = self.driver
@@ -65,8 +65,7 @@ class InformationTest(WebTestBase.BaseTest):
         elem = driver.find_element(By.CLASS_NAME, "display-4")
         self.assertEqual(validText, elem.text)
 
-
-    # Test som kollar om hemsidans title innehåller "Floristgården"
+    # Tests if the title of the website contains "Floristgården"
     def test_title_exist(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
