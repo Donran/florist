@@ -74,7 +74,8 @@ docker run -d -p 4444:4444 --shm-size 1g selenium/standalone-firefox:latest
 And documentation can be [found here](https://github.com/SeleniumHQ/docker-selenium).
 
 Now that everything is running you can just run 
-```cd tests/webtest
+```
+cd tests/webtest
 python3 -m unittest
 ```
 to run all the selenium tests for the website. To run static validation, simple run 
