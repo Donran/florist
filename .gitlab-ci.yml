@@ -43,7 +43,7 @@ e2e:website-test:
     - npm install -g less
   script:
     - lessc less/main.less public/css/style.css
-    - php -S 0.0.0.0:8080 -t public > /dev/null 2>&1 &
+    - python3 -m http.server 8080 -d public > /dev/null 2>&1 &
     - cd tests/webtest
     - python3 -m unittest
   only:
