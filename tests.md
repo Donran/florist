@@ -57,7 +57,7 @@ When this is installed, you can compile the css with the following command from 
 
 After that you need to start a webserver to host the project with. Since this project is pure html/css/js, we can just use a simple web server serving the files in the public directory. I recommend using python3's `http.server` module, which can be run with the following command from the public directory: `python3 -m http.server --cgi 8080`
 
-Now that everything is running you can just `cd tests/webtest` and run `python3 -m unittest` to run all the selenium tests for the website. To run static validation, simple run `./tests/validate/html_validation.sh public` from the root directory. If you want to run a test on the css, simply compile with like mentioned earlier and run the previus command but with css instead of html.
+Now that everything is running you can just `cd tests/webtest` and run `python3 -m unittest` to run all the selenium tests for the website. To run static validation, simple run `./tests/validate/html_validation.sh public` from the root directory. If you want to run a test on the css, simply compile with like mentioned earlier and run the previous command but with css instead of html.
 
 All the CI tests will be run when code is pushed and changes were made to related files, see `.gitlab-ci.yml` for more information.
 
