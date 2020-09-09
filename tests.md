@@ -46,20 +46,41 @@ Now the test is implemented and will be run on CI.
 To run tests, there are some dependencies that needs to be installed first. If you're using Windows, you're going to have to install WSL, specifically WSL2. You can find out how to update WSL [here on the microsoft docs](https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel).
 When you have WSL2 or a Linux installation, you need to install `gitlab-runner` and `docker`. The documentation for installing them can be found [here for gitlab-runner](https://docs.gitlab.com/runner/), and [here for docker](https://docs.docker.com/).
 
-Now, if you want to run the CI tests directly, you should be able to do so now. To run a CI test locally, simply run the following command: `gitlab-runner exec docker <testname>`, for example `gitlab-runner exec docker static_validation`
+Now, if you want to run the CI tests directly, you should be able to do so now. To run a CI test locally, simply run the following command: `gitlab-runner exec docker <testname>`, for example:
+```
+gitlab-runner exec docker static_validation
+```
 
 To run tests by themselves, you're going to need python3, less, and jq installed. To install those just run the following commands:
 ```
 sudo apt install python3 npm jq
 sudo npm install -g less
 ```
-When this is installed, you can compile the css with the following command from the root project directory: `lessc less/main.less public/css/style.css`
+When this is installed, you can compile the css with the following command from the root project directory: 
+```
+lessc less/main.less public/css/style.css
+```
 
-After that you need to start a webserver to host the project with. Since this project is pure html/css/js, we can just use a simple web server serving the files in the public directory. I recommend using python3's `http.server` module, which can be run with the following command from the project root directory: `python3 -m http.server 8080 -d public`
+After that you need to start a webserver to host the project with. Since this project is pure html/css/js, we can just use a simple web server serving the files in the public directory. I recommend using python3's `http.server` module, which can be run with the following command from the project root directory: 
+```
+python3 -m http.server 8080 -d public
+```
 
-To be able to run unittests, you need the selenium firefox standalone service running as well, it can be run with the command `docker run -d -p 4444:4444 --shm-size 1g selenium/standalone-firefox:latest`, and documentation can be [found here](https://github.com/SeleniumHQ/docker-selenium).
+To be able to run unittests, you need the selenium firefox standalone service running as well, it can be run with the command:
+```
+docker run -d -p 4444:4444 --shm-size 1g selenium/standalone-firefox:latest
+```
+And documentation can be [found here](https://github.com/SeleniumHQ/docker-selenium).
 
-Now that everything is running you can just `cd tests/webtest` and run `python3 -m unittest` to run all the selenium tests for the website. To run static validation, simple run `./tests/validate/html_validation.sh public` from the root directory. If you want to run a test on the css, simply compile with like mentioned earlier and run the previous command but with css instead of html.
+Now that everything is running you can just run 
+```cd tests/webtest
+python3 -m unittest
+```
+to run all the selenium tests for the website. To run static validation, simple run 
+```
+./tests/validate/html_validation.sh public
+```
+from the root directory. If you want to run a test on the css, simply compile with like mentioned earlier and run the previous command but with css instead of html.
 
 All the CI tests will be run when code is pushed and changes were made to related files, see `.gitlab-ci.yml` for more information.
 
