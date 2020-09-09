@@ -7,6 +7,10 @@ html, body {
     padding: 0;
 }
 
+.textIsBold {
+    font-weight: bold;
+}
+
 #map {
     width: 60vw;
     height: 400px;
@@ -88,13 +92,8 @@ html, body {
     }
 
     .parallax {
-        background-image: linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
-        ),
-        url('./../images/bild3.jpg');
+        background: url('./../images/flowers.jpg');
         min-height: 100vh;
-        background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -103,7 +102,7 @@ html, body {
         align-items: center;
         margin-bottom: 20px;
         > .parallax-content {
-			color: white;
+			color: #111;
             text-align: center;
 			margin: 20px;
 			padding: 20px;
