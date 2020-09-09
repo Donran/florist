@@ -21,8 +21,5 @@ class BaseTest(unittest.TestCase):
            command_executor=f"http://selenium_firefox:4444/wd/hub"
         )
 
-        # Waits for the driver to be setup.
-        self.driver.implicitly_wait(20)
-
     def tearDown(self):
         self.driver.quit()
