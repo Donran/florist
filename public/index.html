@@ -6,61 +6,43 @@
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="./css/style.css">
+		<link rel="icon" type="image/png" sizes="32x32" href="./favicons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="./favicons/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="./favicons/favicon-16x16.png">
         <script src="https://kit.fontawesome.com/3252b3e180.js" crossorigin="anonymous"></script>
         <title>Floristgården - Hem</title>
     </head>
     <body>
-        <div class="jumbotron jumbotron-fluid">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <h1 class="display-4 serif-font">Välkommen till Floristgården</h1>
-                <p class="lead">
-                    <a target="_blank" href="https://goo.gl/maps/5PyynxTw8Fy4BG1z5">
-                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
-                            <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-                          </svg>
-                        Fjällgatan 32H 981 39 KIRUNA
-                    </a>
-                </p>
-                <p class="lead">
-					<a href="tel:0630-555-555">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
-						</svg>
-						0630-555-555
-					</a>
-
-					<a href="mailto://info@DOMÄN">
-						<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-envelope-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
-						</svg>
-						info@DOMÄN
-					</a>
-                </p>
-            </div>
-		</div>
-		<div class="product-images">
-			<img src="images/bild1.jpg" alt="blomma med flera färger">
-			<img src="images/bild2.jpg" alt="blå blomma typ kanske lila?">
-			<img src="images/bild3.jpg" alt="riktigt cool blomma">
-		</div>
-
-        <div class="container">
-            <h2 class="serif-font text-center">Våra öppettider</h2>
-            <div class="row justify-content-center">
-                <div class="col-2 pb-2">
-                    <ul class="list-group">
-                        <li class="list-group-item opening-hour">Måndagar 10-16</li>
-                        <li class="list-group-item opening-hour">Tisdagar 10-16</li>
-                        <li class="list-group-item opening-hour">Onsdagar 10-16</li>
-                        <li class="list-group-item opening-hour">Torsdagar 10-16</li>
-                        <li class="list-group-item opening-hour">Fredagar 10-16</li>
-                        <li class="list-group-item opening-hour">Lördagar 12-15</li>
+                <a class="navbar-brand" href="#">Floristgården</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="./index.html">Hem</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./personal.html">Personal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./hitta_hit.html">Hitta hit</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </div>
-
+		</nav>
+		<div class="parallax">
+			<div class="parallax-content container display-4">
+				<p>Välkommen till Floristgården!</p>
+			</div>
+		</div>
+		<div class="message container">
+			<h1 class="display-4">Vilka är vi?</h1>
+			<p>Löksås ipsum hela år gamla sällan att stora det där ordningens, räv denna tiden är dunge tiden på strand sitt, i det sista sin både det nya samtidigt faktor. Gör dimma sitt vidsträckt redan hela verkligen kunde där omfångsrik, hwila icke helt björnbär rännil dimma icke varit häst, själv det hans dimma groda ta häst det. Nya sin vidsträckt därmed samma ska vidsträckt i ännu, hav kom sax samma som räv. </p>
+		</div>
         <div class="container">
 
             <h2 class="serif-font text-center">Våra produkter</h2>
@@ -74,7 +56,7 @@
                             <p class="card-text product-text">
                                 Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
                             </p>
-                            <p class="price">1200 kr</p>
+                            <p class="price">1199 kr</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +69,7 @@
                             <p class="card-text product-text">
                                 Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
                             </p>
-                            <p class="price">400 kr</p>
+                            <p class="price">399 kr</p>
                         </div>
                     </div>
                 </div>
@@ -100,7 +82,7 @@
                             <p class="card-text product-text">
                                 Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
                             </p>
-                            <p class="price">200 kr</p>
+                            <p class="price">199 kr</p>
                         </div>
                     </div>
                 </div>
@@ -113,7 +95,7 @@
                             <p class="card-text product-text">
                                 Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
                             </p>
-                            <p class="price">150 kr</p>
+                            <p class="price">149 kr</p>
                         </div>
                     </div>
                 </div>
@@ -126,7 +108,7 @@
                             <p class="card-text product-text">
                                 Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
                             </p>
-                            <p class="price">100 kr</p>
+                            <p class="price">99 kr</p>
                         </div>
                     </div>
                 </div>
@@ -139,7 +121,7 @@
                             <p class="card-text product-text">
                                 Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
                             </p>
-                            <p class="price">250 kr</p>
+                            <p class="price">249 kr</p>
                         </div>
                     </div>
                 </div>
@@ -152,7 +134,7 @@
                             <p class="card-text product-text">
                                 Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
                             </p>
-                            <p class="price">800 kr</p>
+                            <p class="price">799 kr</p>
                         </div>
                     </div>
                 </div>
@@ -193,8 +175,9 @@
                                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
                                         <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
-                                        </svg>
-                                    Fjällgatan 32H 981 39 KIRUNA
+                                    </svg>
+                                    Fjällgatan 32H<br />
+                                    981 39 KIRUNA
                                 </a>
                             </li>
                             <li class="list-group-item">
@@ -218,7 +201,7 @@
     
                 </div>
 
-                <<div class="row justify-content-center">
+                <div class="row justify-content-center">
 
                     <div class="col-md-1 col-2 list-group-flush">
                         <a href="https://sv-se.facebook.com/ntiuppsala/">
@@ -244,7 +227,7 @@
             <div class="made-by-tsm">
                 Made by Travelling Salesmen
             </div>
-        </footer>        
+        </footer>
 
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

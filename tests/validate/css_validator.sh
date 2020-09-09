@@ -20,7 +20,7 @@ for file in $(find $1 -iname '*.css'); do
     # Check if any errors occured
     error_count=`echo $json | jq .result.errorcount`
     if [ "$error_count" = "0" ]; then
-        echo "Success for $i"
+        echo "Success for $file"
     else
         # If errors are found, print them.
         echo "Errors:"
