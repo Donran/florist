@@ -6,8 +6,6 @@ stages:
 
 pages:
   stage: deploy
-  before_script:
-    - npm install -g less
   script:
     - lessc less/main.less public/css/style.css
   artifacts:
@@ -20,8 +18,6 @@ pages:
 
 static_validation:
   stage: test
-  before_script:
-    - npm install -g less
   script:
     - lessc less/main.less public/css/style.css
     - ./tests/validate/css_validator.sh public
@@ -38,9 +34,6 @@ e2e:website-test:
   services:
     - name: selenium/standalone-firefox
       alias: selenium_firefox
-  before_script:
-    - pip3 install selenium==4.0.0a6.post2 requests
-    - npm install -g less
   script:
     - lessc less/main.less public/css/style.css
     - python3 -m http.server 8080 -d public > /dev/null 2>&1 &
