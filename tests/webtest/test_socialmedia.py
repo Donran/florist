@@ -17,12 +17,12 @@ class SocialMediaTest(WebTestBase.BaseTest):
         icons = driver.find_elements(By.CLASS_NAME, "social-link")
         found = 0
         for item in icons:
-            href = item.get_attribute("href") ## Makes sure the links are visitable
+            href = item.get_attribute("href") ## Gets the link 
             if href not in required_links:
                 self.fail("Could not find required link: {}".format(href))
             r = requests.get(href)
             if r.status_code == 404:
-                self.fail("Could not find link: {}".format(href))
+                self.fail("Could not establish a connection with link: {}".format(href))
             else:
                 found += 1
 
