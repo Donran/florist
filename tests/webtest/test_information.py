@@ -30,7 +30,7 @@ class InformationTest(WebTestBase.BaseTest):
                 open_hour_text = opening_hours_elems[index].get_attribute("innerHTML")
                 if(index >= len(open_hours)):
                     index = index - len(open_hours)
-                    self.assertEqual(open_hour_text, open_hours[index])                
+                    self.assertEqual(open_hour_text, open_hours[index])
                 else:
                     self.assertEqual(open_hour_text, open_hours[index])
         else:
