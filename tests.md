@@ -63,7 +63,8 @@ lessc less/main.less public/css/style.css
 
 After that you need to start a webserver to host the project with. Since this project is pure html/css/js, we can just use a simple web server serving the files in the public directory. I recommend using python3's `http.server` module, which can be run with the following command from the project root directory: 
 ```
-python3 -m http.server 8080 -d public
+cd public
+python3 -m http.server 8080
 ```
 
 To be able to run unittests, you need the selenium firefox standalone service running as well, it can be run with the command:
