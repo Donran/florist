@@ -16,8 +16,8 @@ class EmployeeTest(WebTestBase.BaseTest):
         ]
 
         employee_roles = [
-            "Horticulturist",
-            "Owner",
+            "Hortonom",
+            "Ägare",
             "Florist"
         ]
 
