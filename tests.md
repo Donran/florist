@@ -44,7 +44,7 @@ Now the test is implemented and will be run on CI.
 ## Running tests
 
 To run tests, there are some dependencies that needs to be installed first. If you're using Windows, you're going to have to install WSL, specifically WSL2. You can find out how to update WSL [here on the microsoft docs](https://docs.microsoft.com/en-us/windows/wsl/wsl2-kernel).
-When you have WSL2 or a Linux installation, you need to install `gitlab-runner` and `docker`. The documentation for installing them can be found [here for gitlab-runner](https://docs.gitlab.com/runner/), [and here for docker](https://docs.docker.com/).
+When you have WSL2 or a Linux installation, you need to install `gitlab-runner` and `docker`. The documentation for installing them can be found [here for gitlab-runner](https://docs.gitlab.com/runner/), and [here for docker](https://docs.docker.com/).
 
 Now, if you want to run the CI tests directly, you should be able to do so now. To run a CI test locally, simply run the following command: `gitlab-runner exec docker <testname>`, for example `gitlab-runner exec docker static_validation`
 
