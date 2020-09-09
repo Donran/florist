@@ -7,8 +7,7 @@ class InformationTest(WebTestBase.BaseTest):
     def test_address_found(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        address = """Fjällgatan 32H
-981 39 KIRUNA"""
+        address = "Fjällgatan 32H\n981 39 KIRUNA"
 
         try:
             driver.find_element(By.PARTIAL_LINK_TEXT, address)
@@ -21,7 +20,14 @@ class InformationTest(WebTestBase.BaseTest):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
 
-        open_hours = ['Måndagar 10-16', 'Tisdagar 10-16', 'Onsdagar 10-16', 'Torsdagar 10-16', 'Fredagar 10-16', 'Lördagar 12-15']
+        open_hours = [
+            'Måndagar 10-16',
+            'Tisdagar 10-16',
+            'Onsdagar 10-16',
+            'Torsdagar 10-16',
+            'Fredagar 10-16',
+            'Lördagar 12-15'
+        ]
 
         opening_hours_elems = driver.find_elements(By.CLASS_NAME, "opening-hour")
 
@@ -44,12 +50,10 @@ class InformationTest(WebTestBase.BaseTest):
         email = "info@DOMÄN"
         phonenumber = "0630-555-555"
 
-
         try:
             driver.find_element(By.PARTIAL_LINK_TEXT, email)
         except NoSuchElementException:
             self.fail("No email found")
-
 
         try:
             driver.find_element(By.PARTIAL_LINK_TEXT, phonenumber)
