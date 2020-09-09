@@ -86,6 +86,9 @@ To run the static code validation tests locally you need to install some depende
 
 ## Copyright
 
+### Images
+We use images from unsplash. [Unsplash License](https://unsplash.com/license)
+
 ### Fonts
 All fonts used on our website are provided by [Google Fonts](https://fonts.google.com/), whose fonts are free and open source. 
 
