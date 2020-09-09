@@ -12,7 +12,6 @@ html, body {
     height: 400px;
     background-color: gray;
 }
-
 @media screen and (min-width: 320px){
     .product-images {
         width:100%;
@@ -85,8 +84,12 @@ html, body {
     }
 
     .parallax {
-        background-image: url('./../images/bild3.jpg');
-        min-height: 250px;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+        ),
+        url('./../images/bild3.jpg');
+        min-height: 100vh;
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
@@ -96,15 +99,23 @@ html, body {
         align-items: center;
         margin-bottom: 20px;
         > .parallax-content {
-			background-color:#000000bf;
 			color: white;
+            text-align: center;
 			margin: 20px;
 			padding: 20px;
 			height: 200px;
-			border-radius: 13px;
+            font-size: 3em;
         }
     }
     .message {
         padding:10px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .parallax {
+        min-height: 90vh;
+        > .parallax-content {
+            font-size: 4em;
+        }
     }
 }
