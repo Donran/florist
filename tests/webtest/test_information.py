@@ -7,8 +7,8 @@ class InformationTest(WebTestBase.BaseTest):
     def test_address_found(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
-        address = "Fjällgatan 32H 981 39 KIRUNA"
-
+        address = """Fjällgatan 32H
+981 39 KIRUNA"""
 
         try:
             driver.find_element(By.PARTIAL_LINK_TEXT, address)
@@ -30,7 +30,7 @@ class InformationTest(WebTestBase.BaseTest):
                 open_hour_text = opening_hours_elems[index].get_attribute("innerHTML")
                 if(index >= len(open_hours)):
                     index = index - len(open_hours)
-                    self.assertEqual(open_hour_text, open_hours[index])                
+                    self.assertEqual(open_hour_text, open_hours[index])
                 else:
                     self.assertEqual(open_hour_text, open_hours[index])
         else:
