@@ -45,7 +45,7 @@ class ClosedDaysTest(WebTestBase.BaseTest):
 
     def test_closeddays(self):
         driver = self.driver
-        driver.get(self.WEBSITE_URL+"/hittahit.html")
+        driver.get(self.WEBSITE_URL+"hitta_hit.html")
         closeddays_dates = [
             "Nyårsdagen: 1 Januari",
             "Trettondedagen: 6 Januari",
@@ -67,6 +67,7 @@ class ClosedDaysTest(WebTestBase.BaseTest):
 
     def test_closedays_ordered(self):
         driver = self.driver
+        driver.get(self.WEBSITE_URL+"hitta_hit.html")
         sorted_days = get_sorted_closed_days(closeddays_dates)
 
         closeddays = driver.find_elements(By.CLASS_NAME, "closed-day")
