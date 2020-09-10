@@ -59,8 +59,11 @@ function closedDays()
 
 
 $(document).ready(() => {
-    if(window.location.pathname.toLowerCase() == "/hitta_hit.html") {
-        $("#closed-days-tbody").html("");
+    let file_name = window.location.pathname.toLowerCase();
+    file_name = file_name.split("/")
+    file_name = file_name[file_name.length-1]
+
+    if(file_name == "hitta_hit.html") {
         days = closedDays();
         days.forEach(day => {
             day = day[1].split(":")
