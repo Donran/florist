@@ -26,7 +26,7 @@ const closed_days = [
 function closedDays()
 {
     let today=new Date();
-    let one_day=10006060*24;
+    let one_day=1000*60*60*24;
     let sorted_days = []
 
 
@@ -62,10 +62,8 @@ $(document).ready(() => {
     if(window.location.pathname.toLowerCase() == "/hitta_hit.html") {
         days = closedDays();
         days.forEach(day => {
-            console.log(day);
             day = day[1].split(":")
-            //$("#closed-days").append(`<li class="closed-day">${day[1]}</li>`);
-            $("#closed-days-tbody").append(`<tr><td>${day[0]}</td><td>${day[1]}</td></tr>`)
+            $("#closed-days-tbody").append(`<tr class="closed-day"><td>${day[0]}</td><td>${day[1]}</td></tr>`)
         });
     }
 });
