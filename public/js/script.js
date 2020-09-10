@@ -60,6 +60,7 @@ function closedDays()
 
 $(document).ready(() => {
     if(window.location.pathname.toLowerCase() == "/hitta_hit.html") {
+        $("#closed-days-tbody").html("");
         days = closedDays();
         days.forEach(day => {
             day = day[1].split(":")
