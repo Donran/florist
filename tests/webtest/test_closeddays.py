@@ -1,37 +1,33 @@
-#import WebTestBase
-#from selenium.webdriver.common.by import By
-#from selenium.common.exceptions import NoSuchElementException
-from datetime import date
-import datetime
+import WebTestBase
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
+class ClosedDaysTest(WebTestBase.BaseTest):
 
+    def test_closeddays():
+        driver = self.driver
+        driver.get(self.WEBSITE_URL+"/hittahit.html")
+        closeddays_dates = [
+            "Nyårsdagen: 1 Januari",
+            "Trettondedagen: 6 Januari",
+            "Första Maj: 1 Maj",
+            "Sveriges Nationaldag, 6 Juni",
+            "Julafton: 24 December",
+            "Juldagen: 25 December",
+            "Annandag Jul: 26 December",
+            "Nyårsafton: 31 December"
+        ]
+        closeddays = driver.find_elements(By.CLASS_NAME, "closed-day")
+        self.assertEqual(len(closeddays), len(closeddays_dates))
 
-date1 = date(2020,1,1)
-date2 = date(2020,1,6)
-date3 = date(2020,5,1)
-date4 = date(2020,6,6)
-date5 = date(2020,12,24)
-date6 = date(2020,12,25)
-date7 = date(2020,12,26)
-date8 = date(2020,12,31)
+        for day in closeddays:
+            day_on_site = day.text
 
-Today = datetime.date.today()
+            if day_on_site not in closeddays_dates:
+                self.fail("Could not find employee in list: " + day_on_site)
 
-days = [date1, date2, date3, date4, date5, date6, date7, date8]
+           
 
-def countdays():
-    for date in days:
-        delta = date - Today
-        print("Day diff: {}".format(delta))
-
-
-countdays()
-
-
-#1 januari
-#6 januari
-#1 maj
-#6 juni
-#24 december
-#25 december
-#26 december
-#31 december
+        
+        
+        
+    
