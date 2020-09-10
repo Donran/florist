@@ -63,7 +63,9 @@ $(document).ready(() => {
         days = closedDays();
         days.forEach(day => {
             console.log(day);
-            $("#closed-days").append(`<li class="closed-day">${day[1]}</li>`);
+            day = day[1].split(":")
+            //$("#closed-days").append(`<li class="closed-day">${day[1]}</li>`);
+            $("#closed-days-tbody").append(`<tr><td>${day[0]}</td><td>${day[1]}</td></tr>`)
         });
     }
 });
