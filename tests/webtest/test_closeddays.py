@@ -94,6 +94,6 @@ class ClosedDaysTest(WebTestBase.BaseTest):
         for i in range(len(closeddays)):
             td_elems = closeddays[i].find_elements(By.TAG_NAME, "td")
             day_on_site = f"{td_elems[0].text}: {td_elems[1].text}".lower()
-            the_websites_days.append(day_on_site)
+            
             if day_on_site != sorted_days[i]:
                 self.fail("Wrong order in list.")
