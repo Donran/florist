@@ -7,7 +7,7 @@
 
 
 #### HTML
-#### CSS
+#### CSS /w less
 #### JavaScript /w JQuery
 #### Python (tests)
 #### Bash (CI scripts)

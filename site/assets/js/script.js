@@ -63,6 +63,7 @@ $(document).ready(() => {
     file_name = file_name.split("/");
     file_name = file_name[file_name.length-1];
     if(file_name == "hitta_hit.html") {
+        $("#closed-days-tbody").html("");
         days = closedDays();
         days.forEach(day => {
             console.log(day);

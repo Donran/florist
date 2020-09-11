@@ -9,7 +9,7 @@
 We use our own docker image in our test environment. We download it from dockerhub.
 You can learn how to make your own docker image over at their [documentation](https://docs.docker.com/get-started/).
 
-Our docker image contains: python, curl, jq, php, npm and node.js.
+Our docker image contains: python, curl, jq, npm, ruby, geme, jekyll, and node.js.
 
 ## Adding a Test
 
