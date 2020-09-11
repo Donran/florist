@@ -63,6 +63,10 @@ $(document).ready(() => {
     file_name = file_name.split("/");
     file_name = file_name[file_name.length-1];
     if(file_name == "hitta_hit.html") {
+
+        // Remove the class .onlyjs from map to make it visible
+        $("#map").removeClass("onlyjs");
+
         $("#closed-days-tbody").html("");
         days = closedDays();
         days.forEach(day => {
