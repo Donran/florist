@@ -1,4 +1,4 @@
-image: donran/auto-selenium-python:1.0
+image: donran/auto-selenium-python:latest
 
 stages:
   - test
@@ -14,7 +14,6 @@ pages:
   only:
     changes:
       - "site/**/*"
-      - "less/**/*"
 
 static_validation:
   stage: test
@@ -25,7 +24,6 @@ static_validation:
   only:
     changes:
       - "site/**/*"
-      - "less/**/*"
       - "tests/validate/*"
 
 
@@ -42,5 +40,4 @@ e2e:website-test:
   only:
     changes:
       - "site/**/*"
-      - "less/**/*"
       - "tests/webtest/*"
