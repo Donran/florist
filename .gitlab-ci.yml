@@ -18,6 +18,8 @@ pages:
       - public
   rules:
     - if: '$CI_COMMIT_BRANCH == "master"'
+    - changes:
+      - "site/**/*"
 
 static_validation:
   stage: test
@@ -44,3 +46,4 @@ e2e:website-test:
     changes:
       - "site/**/*"
       - "tests/webtest/*"
+      - ".gitlab-ci.yml"
