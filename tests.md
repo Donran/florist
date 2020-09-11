@@ -61,7 +61,7 @@ sudo apt install python3 jq ruby-full build-essential zlib1g-dev
 To install jekyll, compile the website and launch the webserver, simply run the following commands
 ```bash
 gem install jekyll jekyll-less therubyracer
-jekyll serve -s site -d public -P 8080
+jekyll serve -s site -d public -H 0.0.0.0 -P 8080
 ```
 
 To be able to run unittests, you need the selenium firefox standalone service running as well, it can be run with the command:
