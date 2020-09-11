@@ -49,7 +49,7 @@ class InformationTest(WebTestBase.BaseTest):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
 
-        email = "info@DOMÄN"
+        email = "info@the-travelling-salesmen.gitlab.io"
         phonenumber = "0630-555-555"
 
         try:
