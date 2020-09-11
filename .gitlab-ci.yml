@@ -39,7 +39,7 @@ e2e:website-test:
     - name: selenium/standalone-firefox
       alias: selenium_firefox
   script:
-    - jekyll serve -B -s site -P 8080
+    - jekyll serve -B -s site -H 0.0.0.0 -P 8080
     - cd tests/webtest
     - python3 -m unittest
   only:
