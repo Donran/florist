@@ -60,13 +60,14 @@ function closedDays()
 
 $(document).ready(() => {
     let file_name = window.location.pathname.toLowerCase();
-    file_name = file_name.split("/")
-    file_name = file_name[file_name.length-1]
-
+    file_name = file_name.split("/");
+    file_name = file_name[file_name.length-1];
     if(file_name == "hitta_hit.html") {
         days = closedDays();
         days.forEach(day => {
+            console.log(day);
             day = day[1].split(":")
+            //$("#closed-days").append(`<li class="closed-day">${day[1]}</li>`);
             $("#closed-days-tbody").append(`<tr class="closed-day"><td>${day[0]}</td><td>${day[1]}</td></tr>`)
         });
     }

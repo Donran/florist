@@ -8,3 +8,10 @@ public/css/*
 
 __pycache__
 *.pyc
+
+Gemfile.lock
+_site
+.jekyll-cache
+public
+
+.vscode/

@@ -1,0 +1,22 @@
+---
+layout: default
+title: Personal
+---
+
+<div class="container pb-4 mt-5">
+    <h2 class="serif-font">Vår personal</h2>
+    <div class="row pt-2 justify-content-center">
+        {% for person in site.data.personal %}
+        <div class="col-8 col-md-6 col-lg-4 mb-3">
+            <div class="card employee">
+                <img src="{{ person.img_src }}" class="card-img-top employee-img" alt="{{ person.name }}">
+                <div class="card-body">
+                    <h5 class="card-title employee-name">{{ person.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted employee-role">{{ person.role }}</h6>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>

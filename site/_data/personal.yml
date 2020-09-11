@@ -1,0 +1,11 @@
+- name: Anna Pettersson
+  role: Hortonom
+  img_src: ./assets/images/employees/anna_pettersson.jpg
+
+- name: Fredrik Ortqvist
+  role: Ägare
+  img_src: ./assets/images/employees/fredrik_ortqvist.jpg
+
+- name: Örjan Johansson
+  role: Florist
+  img_src: ./assets/images/employees/orjan_johansson.jpg

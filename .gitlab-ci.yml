@@ -1,4 +1,4 @@
-image: pluppen/auto-selenium-python:latest
+image: donran/auto-selenium-python:1.0
 
 stages:
   - test
@@ -7,24 +7,24 @@ stages:
 pages:
   stage: deploy
   script:
-    - lessc less/main.less public/css/style.css
+    - jekyll build -s site -d public
   artifacts:
     paths:
       - public
   only:
     changes:
-      - "public/**/*"
+      - "site/**/*"
       - "less/**/*"
 
 static_validation:
   stage: test
   script:
-    - lessc less/main.less public/css/style.css
+    - jekyll build -s site -d public
     - ./tests/validate/css_validator.sh public
     - ./tests/validate/html_validator.sh public
   only:
     changes:
-      - "public/**/*"
+      - "site/**/*"
       - "less/**/*"
       - "tests/validate/*"
 
@@ -35,12 +35,12 @@ e2e:website-test:
     - name: selenium/standalone-firefox
       alias: selenium_firefox
   script:
-    - lessc less/main.less public/css/style.css
+    - jekyll build -s site -d public
     - python3 -m http.server 8080 -d public > /dev/null 2>&1 &
     - cd tests/webtest
     - python3 -m unittest
   only:
     changes:
-      - "public/**/*"
+      - "site/**/*"
       - "less/**/*"
       - "tests/webtest/*"

@@ -1,0 +1,48 @@
+- name: Bröllopsbuketter
+  description: Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
+  img_src: ./assets/images/products/brollop.png
+  img_alt: Bild på bröllopsbuketter
+  price: 1199
+  id: 4
+
+- name: Höstbukett
+  description: Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
+  img_src: ./assets/images/products/host.jpg
+  img_alt: Bild på höstbukett
+  price: 399
+  id: 6
+
+- name: Sommarbukett
+  description: Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
+  img_src: ./assets/images/products/sommar.jpg
+  img_alt: Bild på sommarbukett
+  price: 199
+  id: 3
+
+- name: Rosor 10-pack
+  description: Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
+  img_src: ./assets/images/products/rosor.jpg
+  img_alt: Bild på rosor
+  price: 149
+  id: 8
+
+- name: Tulpaner 10-pack
+  description: Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
+  img_src: ./assets/images/products/tulpaner.jpg
+  img_alt: Bild på tulpaner
+  price: 99
+  id: 9
+
+- name: Konsultation 30 min
+  description: Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
+  img_src: ./assets/images/bild1.jpg
+  img_alt: Bild på blommor
+  price: 249
+  id: 10
+
+- name: Begravningskrans
+  description: Löksås ipsum söka groda miljoner ordningens som, söka där hwila blivit. Dimmhöljd se där som äng oss sin rännil
+  img_src: ./assets/images/products/begravning.jpg
+  img_alt: Bild på begravningskrans
+  price: 799
+  id: 5

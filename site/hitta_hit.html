@@ -1,0 +1,43 @@
+---
+layout: default
+title: Hitta Hit
+---
+<div class="container mt-5">
+    <h2 class="serif-font">Hitta hit</h2>
+    <a target="_blank" href="https://goo.gl/maps/5PyynxTw8Fy4BG1z5">
+        Fjällgatan 32H<br />
+        981 39 KIRUNA
+    </a>
+    <div id="map">
+    </div>
+</div>
+<div class="container mt-5">
+    <h1>Stängda dagar</h1>
+    <ul id="closed-days">
+    </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <tbody id="closed-days-tbody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The location of Uluru
+        var uluru = {lat: 67.8660579, lng: 20.2339544};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: uluru});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+</script>
+<script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0GvMpFH6TlLbuOvVUQ9pohLnGF1y4V5E&callback=initMap">
+    // Get your own API key at: https://developers.google.com/maps/documentation/javascript/adding-a-google-map#step_3_get_an_api_key
+</script>
