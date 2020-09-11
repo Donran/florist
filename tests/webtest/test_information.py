@@ -33,12 +33,14 @@ class InformationTest(WebTestBase.BaseTest):
 
         if(len(opening_hours_elems) > 0):
             for index in range(len(opening_hours_elems)):
-                open_hour_text = opening_hours_elems[index].get_attribute("innerHTML")
+                open_hour_spans = opening_hours_elems[index].find_elements(By.TAG_NAME, "span")
+                open_hour_text = open_hour_spans[0].text + " " +  open_hour_spans[1].text
+
                 if(index >= len(open_hours)):
                     index = index - len(open_hours)
-                    self.assertEqual(open_hour_text, open_hours[index])
+                    self.assertIn(open_hour_text, open_hours[index])
                 else:
-                    self.assertEqual(open_hour_text, open_hours[index])
+                    self.assertIn(open_hour_text, open_hours[index])
         else:
             self.fail("No opening hours found")
 
