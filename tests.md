@@ -9,7 +9,7 @@
 We use our own docker image in our test environment. We download it from dockerhub.
 You can learn how to make your own docker image over at their [documentation](https://docs.docker.com/get-started/).
 
-Our docker image contains: python, curl, jq, npm, ruby, geme, jekyll, and node.js.
+Our docker image contains: python, curl, jq, ruby, gems, and jekyll.
 
 ## Adding a Test
 
@@ -53,21 +53,15 @@ gitlab-runner exec docker static_validation
 ```
 # Running tests locally without CI script
 
-To run tests by themselves, you're going to need python3, less, and jq installed. To install those just run the following commands:
+To run tests by themselves, you're going to need python3, jq, and dependencies for jekyll installed. To install those just run the following commands:
 ```bash
-sudo apt install python3 npm jq
-sudo npm install -g less
+sudo apt install python3 jq ruby-full build-essential zlib1g-dev
 ```
 
-After that, you can compile the less code to css with the following command from the root project directory: 
+To install jekyll, compile the website and launch the webserver, simply run the following commands
 ```bash
-lessc less/main.less public/css/style.css
-```
-
-Now you need to start a webserver to host the project with. Since this project is pure html/css/js, we can just use a simple web server serving the files in the public directory. I recommend using python3's `http.server` module, which can be run with the following command from the project root directory: 
-```bash
-cd public
-python3 -m http.server 8080
+gem install jekyll jekyll-less therubyracer
+jekyll serve -s site -d public -P 8080
 ```
 
 To be able to run unittests, you need the selenium firefox standalone service running as well, it can be run with the command:
