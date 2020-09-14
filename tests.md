@@ -77,6 +77,7 @@ Documentation for selenium's firefox docker can be [found here](https://github.c
 Now that everything is running you can just run 
 ```bash
 cd tests/webtest
+pip3 install requests selenium==4.0.0a6.post2
 python3 -m unittest
 ```
 to run all the selenium tests for the website. To run static validation, simple run 
