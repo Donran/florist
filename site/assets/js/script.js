@@ -13,27 +13,36 @@ const MONTHS_TO_NUM = {
     "december": 11
 }
 
-const closed_days = [
-    "Nyårsdagen: 1 januari",
-    "Trettondedag jul: 6 januari",
-    "Första maj: 1 maj",
-    "Sveriges nationaldag: 6 juni",
-    "Julafton: 24 december",
-    "Juldagen: 25 december",
-    "Annandag jul: 26 december",
-    "Nyårsafton: 31 december"
-];
+function sortByFirstColumn(a, b) {
+    if (a[0] === b[0]) {
+        return 0;
+    }
+    else {
+        return (a[0] < b[0]) ? -1 : 1;
+    }
+}
+
+/**
+ * Gets closed days from hitta_hit.html.
+ * Then sorts them by closest date.
+ */
 function getClosedDays()
 {
+    let closedDays = [];
+    let closedDaysHTML = document.getElementsByClassName("closed-day");
+    for(let i = 0; i < closedDaysHTML.length; i++){
+        let children = closedDaysHTML[i].children
+        let closedDay = children[0].innerHTML + ": " + children[1].innerHTML
+        closedDays.push(closedDay)
+    }
+
     let today=new Date();
-    let one_day=1000*60*60*24;
-    let sorted_days = []
+    let oneDay=1000*60*60*24;
 
-
-    let closed_days_dates = closed_days.map(day => {
-        let day_arr = day.split(" ");
-        let month = MONTHS_TO_NUM[day_arr.pop()];
-        let date = parseInt(day_arr.pop());
+    let closedDaysDates = closedDays.map(day => {
+        let dayArr = day.split(" ");
+        let month = MONTHS_TO_NUM[dayArr.pop()];
+        let date = parseInt(dayArr.pop());
         let year = today.getFullYear()
 
         if(month < today.getMonth()){
@@ -47,43 +56,32 @@ function getClosedDays()
         return {day: day, date: new Date(year, month, date)};
     });
 
-    let days_and_days_diff = closed_days_dates.map(closedDate => {
-        let days_diff = Math.ceil((closedDate.date.getTime()-today.getTime())/(one_day))
-        return [days_diff, closedDate.day]
-    });
+    let sortedDays = closedDaysDates.map(closedDate => {
+        let daysDiff = Math.ceil((closedDate.date.getTime()-today.getTime())/(oneDay))
+        return [daysDiff, closedDate.day]
+    }).sort(sortByFirstColumn);
 
-    sorted_days = days_and_days_diff.sort(sortByFirstColumn);
-
-    function sortByFirstColumn(a, b) {
-        if (a[0] === b[0]) {
-            return 0;
-        }
-        else {
-            return (a[0] < b[0]) ? -1 : 1;
-        }
-    }
-    return sorted_days;
+    return sortedDays;
 }
 
 function updateClosedDays() {
-    // Remove the class .onlyjs from map to make it visible
-    $("#map").removeClass("onlyjs");
 
-    $("#closed-days-tbody").html("");
     days = getClosedDays();
+    $("#closed-days-tbody").html("");
     days.forEach(day => {
         day = day[1].split(":")
-        //$("#closed-days").append(`<li class="closed-day">${day[1]}</li>`);
         $("#closed-days-tbody").append(`<tr class="closed-day"><td>${day[0]}</td><td>${day[1]}</td></tr>`)
     });
 }
 
 
 $(document).ready(() => {
-    let file_name = window.location.pathname.toLowerCase();
-    file_name = file_name.split("/");
-    file_name = file_name[file_name.length-1];
-    if(file_name == "hitta_hit.html") {
+    let fileName = window.location.pathname.toLowerCase();
+    fileName = fileName.split("/");
+    fileName = fileName[fileName.length-1];
+    if(fileName == "hitta_hit.html") {
+        // Remove the class .onlyjs from map to make it visible
+        $("#map").removeClass("onlyjs");
         updateClosedDays();
     }
 });
