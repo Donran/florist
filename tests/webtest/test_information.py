@@ -26,7 +26,8 @@ class InformationTest(WebTestBase.BaseTest):
             'Onsdagar 10-16',
             'Torsdagar 10-16',
             'Fredagar 10-16',
-            'Lördagar 12-15'
+            'Lördagar 12-15',
+            'Söndagar Stängt'
         ]
 
         opening_hours_elems = driver.find_elements(By.CLASS_NAME, "opening-hour")

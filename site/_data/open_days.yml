@@ -1,17 +1,20 @@
-- name: Måndag
+- name: Måndagar
   time: 10-16
 
-- name: Tisdag
+- name: Tisdagar
   time: 10-16
 
-- name: Onsdag
+- name: Onsdagar
   time: 10-16
 
-- name: Torsdag
+- name: Torsdagar
   time: 10-16
 
-- name: Fredag
+- name: Fredagar
   time: 10-16
 
-- name: Lördag
+- name: Lördagar
   time: 12-15
+
+- name: Söndagar
+  time: Stängt
