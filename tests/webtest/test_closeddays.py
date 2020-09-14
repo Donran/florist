@@ -1,48 +1,46 @@
-import datetime
+import datetime, time
 import WebTestBase
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
 
-import tracemalloc
+def get_day_difference(day, test_date):
+    MONTHS_TO_NUM = {
+        "januari": 1,
+        "februari": 2,
+        "mars": 3,
+        "april": 4,
+        "maj": 5,
+        "juni": 6,
+        "juli": 7,
+        "augusti": 8,
+        "september": 9,
+        "oktober": 10,
+        "november": 11,
+        "december": 12
+    }
 
-tracemalloc.start()
 
-def get_day_difference(day):
-	MONTHS_TO_NUM = {
-		"januari": 1,
-		"februari": 2,
-		"mars": 3,
-		"april": 4,
-		"maj": 5,
-		"juni": 6,
-		"juli": 7,
-		"augusti": 8,
-		"september": 9,
-		"oktober": 10,
-		"november": 11,
-		"december": 12
-	}
+    day_arr = day.split(" ")
+    month = MONTHS_TO_NUM[day_arr.pop()]
+    date_num = int(day_arr.pop())
+    year = int(test_date.year)
 
-	current_date = datetime.date.today()
+    if month == test_date.month:
+        if date_num < test_date.day:
+            year+=1
+    elif month < test_date.month:
+	    year+=1
 
-	day_arr = day.split(" ")
-	month = MONTHS_TO_NUM[day_arr.pop()]
-	date_num = int(day_arr.pop())
-	year = int(current_date.year)
+    day_date = datetime.date(year, month, date_num)
 
-	if(month < current_date.month):
-		year+=1
+    delta = day_date - test_date
 
-	day_date = datetime.date(year, month, date_num)
+    return [delta.days, day]
 
-	delta = day_date - current_date
+def get_sorted_closed_days(closed_days, test_date):
+	closed_days_dates = list(map(lambda day: get_day_difference(day, test_date), closed_days))
 
-	return [delta.days, day]
-
-def get_sorted_closed_days(closed_days):
-	closed_days_dates = list(map(get_day_difference, closed_days))
-
-	temp_sorted = sorted(closed_days_dates,key=lambda x: x[0])
+	temp_sorted = sorted(closed_days_dates,key=lambda x: x[0]) # Returns closed_days sorted with a day_diff.
 	return list(map(lambda d: d[1], temp_sorted)) # Removes the day difference from list
 
 class ClosedDaysTest(WebTestBase.BaseTest):
@@ -52,14 +50,14 @@ class ClosedDaysTest(WebTestBase.BaseTest):
         driver.get(self.WEBSITE_URL+"hitta_hit.html")
 
         closeddays_dates = [
-            "nyårsdagen: 1 januari",
-            "trettondedag jul: 6 januari",
-            "första maj: 1 maj",
-            "sveriges nationaldag: 6 juni",
-            "julafton: 24 december",
-            "juldagen: 25 december",
-            "annandag jul: 26 december",
-            "nyårsafton: 31 december"
+            "Nyårsdagen: 1 januari",
+            "Trettondedag jul: 6 januari",
+            "Första maj: 1 maj",
+            "Sveriges nationaldag: 6 juni",
+            "Julafton: 24 december",
+            "Juldagen: 25 december",
+            "Annandag jul: 26 december",
+            "Nyårsafton: 31 december"
         ]
         driver.implicitly_wait(3)
         closeddays = driver.find_elements(By.CLASS_NAME, "closed-day")
@@ -68,7 +66,7 @@ class ClosedDaysTest(WebTestBase.BaseTest):
 
         for day in closeddays:
             td_elems = day.find_elements(By.TAG_NAME, "td")
-            day_on_site = f"{td_elems[0].text}: {td_elems[1].text}".lower()
+            day_on_site = f"{td_elems[0].text}: {td_elems[1].text}"
             if day_on_site not in closeddays_dates:
                 self.fail("Could not find day in list: " + day_on_site)
 
@@ -77,23 +75,45 @@ class ClosedDaysTest(WebTestBase.BaseTest):
         driver.get(self.WEBSITE_URL+"hitta_hit.html")
 
         closeddays_dates = [
-            "nyårsdagen: 1 januari",
-            "trettondedag jul: 6 januari",
-            "första maj: 1 maj",
-            "sveriges nationaldag: 6 juni",
-            "julafton: 24 december",
-            "juldagen: 25 december",
-            "annandag jul: 26 december",
-            "nyårsafton: 31 december"
+            "Nyårsdagen: 1 januari",
+            "Trettondedag jul: 6 januari",
+            "Första maj: 1 maj",
+            "Sveriges nationaldag: 6 juni",
+            "Julafton: 24 december",
+            "Juldagen: 25 december",
+            "Annandag jul: 26 december",
+            "Nyårsafton: 31 december"
         ]
-        sorted_days = get_sorted_closed_days(closeddays_dates)
 
-        driver.implicitly_wait(3)
-        closeddays = driver.find_elements(By.CLASS_NAME, "closed-day")
+        # List with different dates to simulate
+        test_dates = [
+            datetime.date(2020, 9, 14),
+            datetime.date(2021, 4, 13),
+            datetime.date(2020, 12, 24),
+            datetime.date(2020, 12, 26)
+        ]
 
-        for i in range(len(closeddays)):
-            td_elems = closeddays[i].find_elements(By.TAG_NAME, "td")
-            day_on_site = f"{td_elems[0].text}: {td_elems[1].text}".lower()
+        # Tests with different simulated dates
+        for test_date in test_dates:
+            sorted_days = get_sorted_closed_days(closeddays_dates, test_date)
 
-            if day_on_site != sorted_days[i]:
-                self.fail("Wrong order in list.")
+            # The JavaScript that we want to inject.
+            # We simulate the time with a library called sinonJs that gets imported in our
+            # hitta_hit.html
+            date_string = f"{test_date.year}, {test_date.month - 1}, {test_date.day}"
+            injected_javascript = (
+                f'clock = sinon.useFakeTimers(new Date({date_string}).getTime());'
+                'updateClosedDays()'
+            )
+            # Injects script that simulates the date we want.
+            driver.execute_script(injected_javascript)
+
+            driver.implicitly_wait(3)
+            closeddays = driver.find_elements(By.CLASS_NAME, "closed-day")
+
+            for i in range(len(closeddays)):
+                td_elems = closeddays[i].find_elements(By.TAG_NAME, "td")
+                day_on_site = f"{td_elems[0].text}: {td_elems[1].text}"
+
+                if day_on_site != sorted_days[i]:
+                    self.fail(f"Wrong order in list. Date: {test_date}")
