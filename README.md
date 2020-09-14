@@ -72,6 +72,7 @@ To run the static code validation tests locally you need to install some depende
 + All team members shall read the code and documentation and understand them.
 + If needed, QA shall be preformed.
 + Pat Capitalist-Robin and ask for forgiveness for the awful code.
++ Code shall be looked through in search of points to be improved (Variables, hardcoded code etc.).
 
 
 
