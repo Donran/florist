@@ -1,0 +1,17 @@
+- name: Måndag
+  time: 10-16
+
+- name: Tisdag
+  time: 10-16
+
+- name: Onsdag
+  time: 10-16
+
+- name: Torsdag
+  time: 10-16
+
+- name: Fredag
+  time: 10-16
+
+- name: Lördag
+  time: 12-15
