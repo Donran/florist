@@ -1,3 +1,4 @@
+import yaml
 import datetime, time
 import WebTestBase
 from selenium.webdriver.common.by import By
@@ -43,22 +44,20 @@ def get_sorted_closed_days(closed_days, test_date):
 	temp_sorted = sorted(closed_days_dates,key=lambda x: x[0]) # Returns closed_days sorted with a day_diff.
 	return list(map(lambda d: d[1], temp_sorted)) # Removes the day difference from list
 
+def get_closed_days():
+    yaml_file = open("../../site/_data/closed_days.yml")
+    parsed_yaml_file = yaml.load(yaml_file, Loader=yaml.FullLoader)
+    yaml_file.close()
+    return list(map(lambda closedday: closedday.get("name") + ": " + closedday.get("day"), parsed_yaml_file))
+
 class ClosedDaysTest(WebTestBase.BaseTest):
 
     def test_closeddays(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL+"hitta_hit.html")
 
-        closeddays_dates = [
-            "Nyårsdagen: 1 januari",
-            "Trettondedag jul: 6 januari",
-            "Första maj: 1 maj",
-            "Sveriges nationaldag: 6 juni",
-            "Julafton: 24 december",
-            "Juldagen: 25 december",
-            "Annandag jul: 26 december",
-            "Nyårsafton: 31 december"
-        ]
+        closeddays_dates = get_closed_days()
+
         driver.implicitly_wait(3)
         closeddays = driver.find_elements(By.CLASS_NAME, "closed-day")
 
@@ -70,20 +69,11 @@ class ClosedDaysTest(WebTestBase.BaseTest):
             if day_on_site not in closeddays_dates:
                 self.fail("Could not find day in list: " + day_on_site)
 
-    def test_closedays_ordered(self):
+    def test_closeddays_ordered(self):
         driver = self.driver
         driver.get(self.WEBSITE_URL+"hitta_hit.html")
 
-        closeddays_dates = [
-            "Nyårsdagen: 1 januari",
-            "Trettondedag jul: 6 januari",
-            "Första maj: 1 maj",
-            "Sveriges nationaldag: 6 juni",
-            "Julafton: 24 december",
-            "Juldagen: 25 december",
-            "Annandag jul: 26 december",
-            "Nyårsafton: 31 december"
-        ]
+        closeddays_dates = get_closed_days()
 
         # List with different dates to simulate
         test_dates = [
