@@ -23,7 +23,7 @@ const closed_days = [
     "Annandag jul: 26 december",
     "Nyårsafton: 31 december"
 ];
-function closedDays()
+function getClosedDays()
 {
     let today=new Date();
     let one_day=1000*60*60*24;
@@ -57,23 +57,25 @@ function closedDays()
     return sorted_days;
 }
 
+function updateClosedDays() {
+    // Remove the class .onlyjs from map to make it visible
+    $("#map").removeClass("onlyjs");
+
+    $("#closed-days-tbody").html("");
+    days = getClosedDays();
+    days.forEach(day => {
+        day = day[1].split(":")
+        //$("#closed-days").append(`<li class="closed-day">${day[1]}</li>`);
+        $("#closed-days-tbody").append(`<tr class="closed-day"><td>${day[0]}</td><td>${day[1]}</td></tr>`)
+    });
+}
+
 
 $(document).ready(() => {
     let file_name = window.location.pathname.toLowerCase();
     file_name = file_name.split("/");
     file_name = file_name[file_name.length-1];
     if(file_name == "hitta_hit.html") {
-
-        // Remove the class .onlyjs from map to make it visible
-        $("#map").removeClass("onlyjs");
-
-        $("#closed-days-tbody").html("");
-        days = closedDays();
-        days.forEach(day => {
-            console.log(day);
-            day = day[1].split(":")
-            //$("#closed-days").append(`<li class="closed-day">${day[1]}</li>`);
-            $("#closed-days-tbody").append(`<tr class="closed-day"><td>${day[0]}</td><td>${day[1]}</td></tr>`)
-        });
+        updateClosedDays();
     }
 });
