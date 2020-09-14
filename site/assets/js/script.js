@@ -34,7 +34,15 @@ function getClosedDays()
         let day_arr = day.split(" ");
         let month = MONTHS_TO_NUM[day_arr.pop()];
         let date = parseInt(day_arr.pop());
-        let year = today.getMonth() > month ? today.getFullYear() + 1 : today.getFullYear()
+        let year = today.getFullYear()
+
+        if(month < today.getMonth()){
+            year+=1
+        } else if(month == today.getMonth()) {
+            if(date < today.getDate()) {
+                year+=1
+            }
+        }
 
         return {day: day, date: new Date(year, month, date)};
     });
