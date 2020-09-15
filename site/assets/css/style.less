@@ -110,6 +110,34 @@ body {
         }
     }
 
+    .blommogram {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+        width: 60vw;
+        > * {
+            padding: .5rem 1rem;
+            font-size: 1.25rem;
+        }
+        input {
+            border-radius: 5px 0px 0px 5px;
+        }
+        input:focus {
+            box-shadow: none;
+            outline: none;
+            border: 2px solid #007bff;
+        }
+        input:focus + button {
+            outline: none;
+            border: 1px solid #007bff;
+        }
+        button {
+            border-radius: 0px 5px 5px 0px;
+        }
+    }
+
     .parallax {
         background: url('./../images/flowers.jpg');
         min-height: 100vh;
@@ -179,11 +207,21 @@ body {
     }
 }
 
+@media screen and (min-width: 768px){
+    .blommogram {
+        width: 20vw;
+    }
+}
+
 @media screen and (min-width: 992px) {
     .parallax {
         min-height: 90vh;
         > .parallax-content {
             font-size: 3.4em;
         }
+    }
+
+    .blommogram {
+        width: 16vw;
     }
 }
