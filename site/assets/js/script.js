@@ -21,7 +21,31 @@ function sortByFirstColumn(a, b) {
         return (a[0] < b[0]) ? -1 : 1;
     }
 }
+function checkZipcode()
+{
+    let blommogram = $(".blommogram");
+    let zippies = [
+        "98138",
+        "98139",
+        "98140",
+        "98142",
+    ];
+    let zip = $("#zipcode").val().replace(/[\s\D-]/gi, "");
 
+    blommogram.popover('enable');
+    setTimeout(() => {
+        blommogram.popover('hide');
+        blommogram.popover('disable');
+    }, 3000);
+    if (zippies.includes(zip)) {
+        blommogram.attr("data-content", "Vi skickar blommor inom detta postnummer.");
+    } else {
+        blommogram.attr("data-content", "Vi skickar inte blommor inom detta postnummer.");
+    }
+
+    blommogram.popover('show');
+
+}
 /**
  * Gets closed days from hitta_hit.html.
  * Then sorts them by closest date.
@@ -83,5 +107,8 @@ $(document).ready(() => {
         // Remove the class .onlyjs from map to make it visible
         $("#map").removeClass("onlyjs");
         updateClosedDays();
+    } else if(fileName == "index.html" || fileName == "") {
+        $('.blommogram').popover();
+        $('.blommogram').popover("disable");
     }
 });
