@@ -9,6 +9,33 @@ title: Hem
 </div>
 
 <div class="container">
+    <h2 class="serif-font text-center mt-5">Vart skickar vi blommor?</h2>
+    <div
+        class="blommogram"
+        data-container="body"
+        data-toggle="popover"
+        data-placement="bottom"
+        data-content="Hmmm...."
+    >
+        <input
+            onkeypress="event.keyCode === 13 ? checkZipcode() : null"
+            id="zipcode"
+            class="form-control form-control-lg"
+            type="text"
+            placeholder="Postkod"
+        />
+        <button
+            id="zipcode-btn"
+            onclick="checkZipcode()"
+            type="button"
+            class="btn btn-primary"
+        >
+            Kolla
+        </button>
+    </div>
+</div>
+
+<div class="container">
     <h2 class="serif-font text-center mt-5">Våra produkter</h2>
     <div class="row justify-content-center">
         {% for product in site.data.products %}
