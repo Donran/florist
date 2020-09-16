@@ -70,7 +70,7 @@ class InformationTest(WebTestBase.BaseTest):
         driver = self.driver
         driver.get(self.WEBSITE_URL)
         elem = driver.find_element(By.CLASS_NAME, "display-4")
-        self.assertEqual(validText, elem.text)
+        self.assertIn(validText, elem.text)
 
     # Tests if the title of the website contains "Floristgården"
     def test_title_exist(self):

@@ -2,7 +2,12 @@
 @footer-dark-bg-color: #343a40;
 @footer-text-color: #FFF;
 @mainFont: 'Roboto Slab', serif;
-@headerFont: 'Lora', serif; 
+@headerFont: 'Lora', serif;
+@mainButtonColor: #F17F98;
+
+html {
+    scroll-behavior: smooth;
+}
 
 html, body {
     margin: 0;
@@ -27,6 +32,36 @@ body {
     height: 400px;
     background-color: gray;
 }
+
+.btn {
+    border-color: @mainButtonColor !important;
+    &:hover {
+        border-color: @mainButtonColor;
+    }
+    &:focus, &:active {
+        border-color: @mainButtonColor !important;
+        background-color: @mainButtonColor !important;
+        color: lightgray !important;
+        box-shadow: none;
+    }
+}
+
+.btn-outline-info {
+    color: @mainButtonColor;
+    &:hover {
+        color: #FFF;
+        background-color: @mainButtonColor;
+    }
+}
+
+.btn-info {
+    background-color: @mainButtonColor;
+    &:hover {
+        background-color: rgba(0,0,0,0);
+        color: @mainButtonColor;
+    }
+}
+
 @media screen and (min-width: 320px){
     .product-images {
         width:100%;
