@@ -5,6 +5,8 @@ title: Hem
 <div class="parallax">
     <div class="parallax-content container display-4">
         <p class="serif-font">Välkommen till Floristgården!</p>
+        <a id="our-products-btn" href="#our-products" class="btn btn-outline-info">Våra produkter</a>
+        <a id="opening-hours-btn" href="./hitta_hit.html#opening-hours" class="btn btn-outline-info">Våra öppettider</a>
     </div>
 </div>
 
@@ -28,7 +30,7 @@ title: Hem
             id="zipcode-btn"
             onclick="checkZipcode()"
             type="button"
-            class="btn btn-primary"
+            class="btn btn-info"
         >
             Kolla
         </button>
@@ -36,7 +38,7 @@ title: Hem
 </div>
 
 <div class="container">
-    <h2 class="serif-font text-center mt-5">Våra produkter</h2>
+    <h2 id="our-products" class="serif-font text-center mt-5">Våra produkter</h2>
     <div class="row justify-content-center">
         {% for product in site.data.products %}
             <div id="{{ product.id }}" class="col-lg-3 col-md-4 col-sm-6 col-12 product pt-4">
