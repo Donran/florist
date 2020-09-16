@@ -17,7 +17,11 @@ pages:
     paths:
       - public
   rules:
-    - if: '$CI_COMMIT_BRANCH == "master"'
+    - changes:
+        - "site/**/*"
+        - "tests/validate/*"
+        - ".gitlab-ci.yml"
+      if: '$CI_COMMIT_BRANCH == "master"'
 
 static_validation:
   stage: test
