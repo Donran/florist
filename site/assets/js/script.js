@@ -13,39 +13,42 @@ const MONTHS_TO_NUM = {
     "december": 11
 }
 
-function sortByFirstColumn(a, b) {
-    if (a[0] === b[0]) {
-        return 0;
-    }
-    else {
-        return (a[0] < b[0]) ? -1 : 1;
-    }
-}
+const validZipcodes = [
+    "98138",
+    "98139",
+    "98140",
+    "98142",
+];
+
+let timeoutId;
+
+/**
+ * Checks if input from user is valid zipcode and returns status message.
+ */
 function checkZipcode()
 {
     let blommogram = $(".blommogram");
-    let zippies = [
-        "98138",
-        "98139",
-        "98140",
-        "98142",
-    ];
-    let zip = $("#zipcode").val().replace(/[\s\D-]/gi, "");
 
-    blommogram.popover('enable');
-    setTimeout(() => {
+    // Uses regex to remove all non digits.
+    let zip = $("#zipcode").val().replace(/[^\d]/gi, "");
+
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
         blommogram.popover('hide');
         blommogram.popover('disable');
     }, 3000);
-    if (zippies.includes(zip)) {
+
+    if (validZipcodes.includes(zip)) {
         blommogram.attr("data-content", "Vi skickar blommor inom detta postnummer.");
     } else {
         blommogram.attr("data-content", "Vi skickar inte blommor inom detta postnummer.");
     }
 
+    blommogram.popover('enable');
     blommogram.popover('show');
-
 }
+
+
 /**
  * Gets closed days from hitta_hit.html.
  * Then sorts them by closest date.
@@ -83,10 +86,11 @@ function getClosedDays()
     let sortedDays = closedDaysDates.map(closedDate => {
         let daysDiff = Math.ceil((closedDate.date.getTime()-today.getTime())/(oneDay))
         return [daysDiff, closedDate.day]
-    }).sort(sortByFirstColumn);
+    }).sort((a, b) => (a[0] < b[0]) ? -1 : 1); // Sorts by first column.
 
     return sortedDays;
 }
+
 
 function updateClosedDays() {
 
@@ -100,15 +104,20 @@ function updateClosedDays() {
 
 
 $(document).ready(() => {
+    $(".onlyjs").css("display", 'block');
+
     let fileName = window.location.pathname.toLowerCase();
     fileName = fileName.split("/");
     fileName = fileName[fileName.length-1];
-    if(fileName == "hitta_hit.html") {
-        // Remove the class .onlyjs from map to make it visible
-        $("#map").removeClass("onlyjs");
-        updateClosedDays();
-    } else if(fileName == "index.html" || fileName == "") {
-        $('.blommogram').popover();
-        $('.blommogram').popover("disable");
+
+    switch(fileName){
+        case "hitta_hit.html":
+           updateClosedDays();
+           break;
+        case "index.html":
+        case "":
+            $('.blommogram').popover();
+            $('.blommogram').popover("disable");
+            break;
     }
 });

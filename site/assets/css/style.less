@@ -1,6 +1,8 @@
 @footer-bg-color: #212529;
 @footer-dark-bg-color: #343a40;
 @footer-text-color: #FFF;
+@mainFont: 'Roboto Slab', serif;
+@headerFont: 'Lora', serif; 
 
 html, body {
     margin: 0;
@@ -33,11 +35,12 @@ body {
         }
     }
     .serif-font {
-        font-family: 'Merriweather', serif;
+        font-family: @mainFont;
     }
 
     .display-4.serif-font{
         font-size: 3em;
+        font-family: @headerFont;
     }
 
     .product {
