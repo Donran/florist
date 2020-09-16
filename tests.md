@@ -55,7 +55,7 @@ gitlab-runner exec docker static_validation
 
 To run tests by themselves, you're going to need python3, jq, and dependencies for jekyll installed. To install those just run the following commands:
 ```bash
-sudo apt install python3 jq ruby-full build-essential zlib1g-dev
+sudo apt install python3 jq ruby-full build-essential zlib1g-dev firefox-esr # Note: firefox works as well
 ```
 
 To install jekyll, compile the website and launch the webserver, simply run the following commands
@@ -63,16 +63,6 @@ To install jekyll, compile the website and launch the webserver, simply run the 
 gem install jekyll jekyll-less therubyracer
 jekyll serve -s site -d public -H 0.0.0.0 -P 8080
 ```
-
-To be able to run unittests, you need the selenium firefox standalone service running as well, it can be run with the command:
-```bash
-docker run -d -p 4444:4444 --shm-size 1g selenium/standalone-firefox:latest
-```
-To make sure the script can connect to the firefox server you also need to add the following to your `/etc/hosts`
-```bash
-127.0.0.1 selenium_firefox
-```
-Documentation for selenium's firefox docker can be [found here](https://github.com/SeleniumHQ/docker-selenium).
 
 Now that everything is running you can just run 
 ```bash
