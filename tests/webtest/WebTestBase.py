@@ -1,25 +1,32 @@
 #!/usr/bin/env python3
-import unittest
+import unittest, os
 from subprocess import check_output
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options as options
+from selenium.webdriver.firefox.service import Service
 
 class BaseTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(self):
+        self.WEBSITE_URL = "http://127.0.0.1:8080/"
 
-    def setUp(self):
-        # Get the LAN ip from the system hostname command
-        # strip it of it's newline and split the ip addresses
-        # The first IP address will be the one we need, the others are gateways
-        # This is needed because we need to be able to give the standalone firefox service
-        # the ip address of the container running this script.
-        local_ip = check_output(['hostname', '--all-ip-addresses']).decode().strip().split(" ")[0]
+        try:
+            firefox_binary = check_output(['which', 'firefox-esr']).decode().strip()
+        except:
+            try:
+                firefox_binary = check_output(["which", "firefox"]).decode().strip()
+            except:
+                print("Could not find any firefox installed")
+                sys.exit(1)
 
-        self.WEBSITE_URL = "http://{}:8080/".format(local_ip)
+        # set up firefox service and options
+        ops = options()
+        ops.headless = True
+        ops.binary_location = firefox_binary
+        serv = Service(os.getcwd()+"/../geckodriver")
 
-        # selenium_firefox is a hostname for the firefox standalone service, see: .gitlab-ci.yml
-        self.driver = webdriver.Remote(
-           desired_capabilities=webdriver.DesiredCapabilities.FIREFOX,
-           command_executor=f"http://selenium_firefox:4444/wd/hub"
-        )
+        self.driver = webdriver.Firefox(service=serv, options=ops)
 
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(self):
         self.driver.quit()
