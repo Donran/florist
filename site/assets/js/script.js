@@ -104,7 +104,7 @@ function updateClosedDays(date) {
 
 function openBanner(date)
 {
-    if(document.cookie != "") return;
+    $(".open-banner-div").css("display", "inline");
     let open_hours = $(".opening-hour").map((index, el) => {
         return el.lastChild.innerText;
     });
@@ -114,12 +114,6 @@ function openBanner(date)
         $("#open-banner").text("Idag har vi stängt");
     else
         $("#open-banner").text("Idag har vi öppet " + open_hours_td);
-    $(".open-banner-div").css("display", "block");
-}
-
-function closeBanner() {
-    document.cookie = "open_status=1; expires="+new Date(new Date().getTime() + 60*60*1000).toUTCString()+";";
-    $('.open-banner-div').css('display','none')
 }
 
 $(document).ready(() => {
@@ -143,3 +137,22 @@ $(document).ready(() => {
     }
     openBanner(new Date());
 });
+
+/**
+ * Listen to scroll to change header opacity class
+ */
+function checkScroll(){
+    var startY = $('.navbar').height() * 2; //The point where the navbar changes in px
+
+    if($(window).scrollTop() > startY){
+        $('.navbar').addClass("scrolled");
+    }else{
+        $('.navbar').removeClass("scrolled");
+    }
+}
+
+if($('.navbar').length > 0){
+    $(window).on("scroll load resize", function(){
+        checkScroll();
+    });
+}
