@@ -78,7 +78,7 @@ function getClosedDays(date)
 
         if(month < today.getMonth()){
             year+=1
-        } else if(month == today.getMonth()) {
+        } else if(month === today.getMonth()) {
             if(date < today.getDate()) {
                 year+=1
             }
@@ -108,13 +108,13 @@ function updateClosedDays(date) {
 
 function openBanner(date)
 {
-    let open_hours = $(".opening-hour").map((index, el) => {
+    const open_hours = $(".opening-hour").map((index, el) => {
         return (<HTMLElement>el.lastChild).innerText;
     });
 
-    let day = date.getDay();
-    let open_hours_td = open_hours[day == 0 ? 6 : day-1];
-    if (open_hours_td.toLowerCase() == "stängt")
+    const day = date.getDay();
+    const open_hours_td = open_hours[day === 0 ? 6 : day-1];
+    if (open_hours_td.toLowerCase() === "stängt")
         $("#open-banner").text("Idag har vi stängt");
     else
         $("#open-banner").text("Idag har vi öppet " + open_hours_td);
