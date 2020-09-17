@@ -20,20 +20,22 @@ const validZipcodes = [
     "98142",
 ];
 
-let timeoutId;
+let timeoutId: number;
 
 /**
  * Checks if input from user is valid zipcode and returns status message.
  */
 function checkZipcode()
 {
-    let blommogram = $(".blommogram");
+    const blommogram = $(".blommogram");
 
     // Uses regex to remove all non digits.
-    let zip = $("#zipcode").val().replace(/[^\d]/gi, "");
+    let zip: string = <string>$("#zipcode").val();
+    zip = zip.replace(/[^\d]/gi, "");
 
     clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => {
+
+    timeoutId = <any>setTimeout(() => {
         blommogram.popover('hide');
         blommogram.popover('disable');
     }, 3000);
@@ -94,7 +96,7 @@ function getClosedDays(date)
 
 function updateClosedDays(date) {
 
-    days = getClosedDays(date);
+    const days = getClosedDays(date);
     $("#closed-days-tbody").html("");
     days.forEach(day => {
         day = day[1].split(":")
@@ -104,16 +106,11 @@ function updateClosedDays(date) {
 
 function openBanner(date)
 {
-    if(document.cookie != "") return;
     let open_hours = $(".opening-hour").map((index, el) => {
-
-        eturn el.lastChild.innerText;
+        return (<HTMLElement>el.lastChild).innerText;
     });
 
     let day = date.getDay();
-    
-    
-    
     let open_hours_td = open_hours[day == 0 ? 6 : day-1];
     if (open_hours_td.toLowerCase() == "stängt")
         $("#open-banner").text("Idag har vi stängt");
@@ -122,17 +119,11 @@ function openBanner(date)
     $(".open-banner-div").css("display", "block");
 }
 
-function closeBanner() {
-    document.cookie = "open_status=1; expires="+new Date(new Date().getTime() + 60*60*1000).toUTCString()+";";
-    $('.open-banner-div').css('display','none')
-}
-
 $(document).ready(() => {
     $(".onlyjs").css("display", 'block');
 
-    let fileName = window.location.pathname.toLowerCase();
-    fileName = fileName.split("/");
-    fileName = fileName[fileName.length-1];
+    const fileNameArr: string[] = window.location.pathname.toLowerCase().split("/");;
+    const fileName = fileNameArr[fileNameArr.length-1];
 
     switch(fileName){
         case "hitta_hit.html":
@@ -140,8 +131,9 @@ $(document).ready(() => {
            break;
         case "index.html":
         case "":
-            $('.blommogram').popover();
-            $('.blommogram').popover("disable");
+            const blommogram = $(".blommogram");
+            blommogram.popover();
+            blommogram.popover("disable");
             break;
         default:
             break;

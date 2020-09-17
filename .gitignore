@@ -15,3 +15,5 @@ _site
 public/
 
 .vscode/
+
+node_modules/
