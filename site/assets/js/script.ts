@@ -57,7 +57,7 @@ function checkZipcode()
  * Gets closed days from hitta_hit.html.
  * Then sorts them by closest date.
  */
-function getClosedDays(date)
+function getClosedDays(date: Date)
 {
     const today = date;
     const closedDays = [];
@@ -97,7 +97,7 @@ function getClosedDays(date)
 }
 
 
-function updateClosedDays(date) {
+function updateClosedDays(date: Date) {
 
     const days = getClosedDays(date);
     $("#closed-days-tbody").html("");
@@ -107,9 +107,9 @@ function updateClosedDays(date) {
     });
 }
 
-function openBanner(date)
+function openBanner(date: Date)
 {
-    const openHours = $(".opening-hour").map((index, el) => {
+    const openHours = $(".opening-hour").map((_, el) => {
         return (el.lastChild as HTMLElement).innerText;
     });
 
