@@ -92,8 +92,7 @@ class ClosedDaysTest(WebTestBase.BaseTest):
             # hitta_hit.html
             date_string = f"{test_date.year}, {test_date.month - 1}, {test_date.day}"
             injected_javascript = (
-                f'clock = sinon.useFakeTimers(new Date({date_string}).getTime());'
-                'updateClosedDays()'
+                f'updateClosedDays(new Date({date_string}))'
             )
             # Injects script that simulates the date we want.
             driver.execute_script(injected_javascript)

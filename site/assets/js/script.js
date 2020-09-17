@@ -53,8 +53,9 @@ function checkZipcode()
  * Gets closed days from hitta_hit.html.
  * Then sorts them by closest date.
  */
-function getClosedDays()
+function getClosedDays(date)
 {
+    let today = date;
     let closedDays = [];
     let closedDaysHTML = document.getElementsByClassName("closed-day");
     for(let i = 0; i < closedDaysHTML.length; i++){
@@ -63,7 +64,6 @@ function getClosedDays()
         closedDays.push(closedDay)
     }
 
-    let today=new Date();
     let oneDay=1000*60*60*24;
 
     let closedDaysDates = closedDays.map(day => {
@@ -92,9 +92,9 @@ function getClosedDays()
 }
 
 
-function updateClosedDays() {
+function updateClosedDays(date) {
 
-    days = getClosedDays();
+    days = getClosedDays(date);
     $("#closed-days-tbody").html("");
     days.forEach(day => {
         day = day[1].split(":")
@@ -102,6 +102,25 @@ function updateClosedDays() {
     });
 }
 
+function openBanner(date)
+{
+    if(document.cookie != "") return;
+    let open_hours = $(".opening-hour").map((index, el) => {
+        return el.lastChild.innerText;
+    });
+    let day = date.getDay();
+    let open_hours_td = open_hours[day == 0 ? 6 : day-1];
+    if (open_hours_td.toLowerCase() == "stängt")
+        $("#open-banner").text("Idag har vi stängt");
+    else
+        $("#open-banner").text("Idag har vi öppet " + open_hours_td);
+    $(".open-banner-div").css("display", "block");
+}
+
+function closeBanner() {
+    document.cookie = "open_status=1; expires="+new Date(new Date().getTime() + 60*60*1000).toUTCString()+";";
+    $('.open-banner-div').css('display','none')
+}
 
 $(document).ready(() => {
     $(".onlyjs").css("display", 'block');
@@ -112,12 +131,15 @@ $(document).ready(() => {
 
     switch(fileName){
         case "hitta_hit.html":
-           updateClosedDays();
+           updateClosedDays(new Date());
            break;
         case "index.html":
         case "":
             $('.blommogram').popover();
             $('.blommogram').popover("disable");
             break;
+        default:
+            break;
     }
+    openBanner(new Date());
 });
