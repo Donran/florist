@@ -33,8 +33,14 @@ body {
     background-color: gray;
 }
 
-#open-banner {
-    float:left;
+/* Add the below transitions to allow a smooth color change similar to lyft */
+.navbar {
+    transition: all 0.6s ease-out;
+}
+
+.navbar.scrolled {
+    background: rgb(255, 255, 255) !important; /* NON-IE */
+    background: rgba(255, 255, 255, 0.75) !important; /* NON-IE */
 }
 
 .btn {
@@ -250,12 +256,8 @@ body {
 
     .open-banner-div {
         display:none;
-        background-color:#f5dfe4;
-        font-size:1.3em;
-        padding:13px;
-        button {
-            font-size: 1.9rem;
-        }
+        padding: 10px;
+        color: #DF5171 !important;
     }
 }
 
