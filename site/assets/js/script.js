@@ -118,6 +118,7 @@ function openBanner(date)
 
 $(document).ready(() => {
     $(".onlyjs").css("display", 'block');
+    $(".navbar").addClass("fixed-top");
 
     let fileName = window.location.pathname.toLowerCase();
     fileName = fileName.split("/");
