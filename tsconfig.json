@@ -3,6 +3,7 @@
       "plugins": [
         { "name": "typescript-tslint-plugin" }
       ],
-      "lib": ["es6", "dom", "es2017"],
+      "lib": ["es6", "dom", "dom.iterable", "es2017"],
+      "target": "es6"
     },
 }

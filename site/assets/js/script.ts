@@ -30,15 +30,15 @@ function checkZipcode()
     const blommogram = $(".blommogram");
 
     // Uses regex to remove all non digits.
-    let zip: string = <string>$("#zipcode").val();
+    let zip: string = $("#zipcode").val() as string;
     zip = zip.replace(/[^\d]/gi, "");
 
     clearTimeout(timeoutId);
 
-    timeoutId = <any>setTimeout(() => {
+    timeoutId = setTimeout(() => {
         blommogram.popover('hide');
         blommogram.popover('disable');
-    }, 3000);
+    }, 3000) as any;
 
     if (validZipcodes.includes(zip)) {
         blommogram.attr("data-content", "Vi skickar blommor inom detta postnummer.");
@@ -57,36 +57,37 @@ function checkZipcode()
  */
 function getClosedDays(date)
 {
-    let today = date;
-    let closedDays = [];
-    let closedDaysHTML = document.getElementsByClassName("closed-day");
-    for(let i = 0; i < closedDaysHTML.length; i++){
-        let children = closedDaysHTML[i].children
-        let closedDay = children[0].innerHTML + ": " + children[1].innerHTML
+    const today = date;
+    const closedDays = [];
+    const closedDaysHTML = document.querySelectorAll(".closed-day");
+
+    for(const closedDayElem of closedDaysHTML){
+        const children = closedDayElem.children
+        const closedDay = children[0].innerHTML + ": " + children[1].innerHTML
         closedDays.push(closedDay)
     }
 
-    let oneDay=1000*60*60*24;
+    const oneDay=1000*60*60*24;
 
-    let closedDaysDates = closedDays.map(day => {
-        let dayArr = day.split(" ");
-        let month = MONTHS_TO_NUM[dayArr.pop()];
-        let date = parseInt(dayArr.pop());
+    const closedDaysDates = closedDays.map(day => {
+        const dayArr = day.split(" ");
+        const month = MONTHS_TO_NUM[dayArr.pop()];
+        const dateDay = parseInt(dayArr.pop(), 10);
         let year = today.getFullYear()
 
         if(month < today.getMonth()){
             year+=1
-        } else if(month == today.getMonth()) {
-            if(date < today.getDate()) {
+        } else if(month === today.getMonth()) {
+            if(dateDay < today.getDate()) {
                 year+=1
             }
         }
 
-        return {day: day, date: new Date(year, month, date)};
+        return {day, date: new Date(year, month, dateDay)};
     });
 
-    let sortedDays = closedDaysDates.map(closedDate => {
-        let daysDiff = Math.ceil((closedDate.date.getTime()-today.getTime())/(oneDay))
+    const sortedDays = closedDaysDates.map(closedDate => {
+        const daysDiff = Math.ceil((closedDate.date.getTime()-today.getTime())/(oneDay))
         return [daysDiff, closedDate.day]
     }).sort((a, b) => (a[0] < b[0]) ? -1 : 1); // Sorts by first column.
 
@@ -106,16 +107,16 @@ function updateClosedDays(date) {
 
 function openBanner(date)
 {
-    let open_hours = $(".opening-hour").map((index, el) => {
-        return (<HTMLElement>el.lastChild).innerText;
+    const openHours = $(".opening-hour").map((index, el) => {
+        return (el.lastChild as HTMLElement).innerText;
     });
 
-    let day = date.getDay();
-    let open_hours_td = open_hours[day == 0 ? 6 : day-1];
-    if (open_hours_td.toLowerCase() == "stängt")
+    const day = date.getDay();
+    const openHoursTd = openHours[day === 0 ? 6 : day-1];
+    if (openHoursTd.toLowerCase() === "stängt")
         $("#open-banner").text("Idag har vi stängt");
     else
-        $("#open-banner").text("Idag har vi öppet " + open_hours_td);
+        $("#open-banner").text("Idag har vi öppet " + openHoursTd);
     $(".open-banner-div").css("display", "block");
 }
 
