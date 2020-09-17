@@ -1,4 +1,4 @@
-# Tech spike
+# Tech spike - Hosting
 
 In this tech spike we compared GitLab Pages and DigitalOcean 
 to decide which one to use to host our website.
@@ -27,4 +27,35 @@ to decide which one to use to host our website.
 
 
 ## Verdict
-We went with GitLab Pages because it's easy-to-use nature was a perfect fit for the current stage in our project. 
+We went with GitLab Pages because it's easy-to-use nature was a perfect fit for the current stage in our project.
+
+# Tech spike - Js Vs TypeScript
+
+In this tech spike we compared vanilla js and typescript.
+
+## Vanilla Js
+
+### Pros
++ We already know it/Easy to learn.
++ Our project is using vanilla js.
++ Does not require compilation.
+
+### Cons
++ Not type safe.
++ Easy to miss bugs.
+
+## TypeScript
+
+### Pros
++ Is type safe.
++ Used in a lot of workspaces.
++ Early spotted bugs.
++ Readability.
+
+### Cons
++ Requires compilation
++ Can be over complicated.
++ False sense of security.
+
+## Verdict
+We will change from vanilla js to typescript on a branch to test it out. If the tests shows good results we will switch it over on our master branch.
