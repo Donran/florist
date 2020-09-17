@@ -13,12 +13,14 @@ Our docker image contains: python, curl, jq, ruby, gems, and jekyll.
 
 ## Adding a Test
 
-Begin by opening the `website_tests.py` file.
+Begin by creating a new python file in the directory `tests/webtest`, for example `test_information.py`.
 
-In the WebsiteTest class you will begin by adding a method with a name describing the test you will execute. 
+In the python file you will begin by importing `WebTestBase.py` into your test, and creating a class that inherits the **BaseTest** class from `WebTestBase.py`. Inside your newly created class you will also want a method that will specify what the test will do. 
 
 ```python
-class WebsiteTest(unittest.TestCase):
+import WebTestBase
+
+class InformationTest(WebTestBase.BaseTest):
     ...
     def your_new_test(self):
         # Do something!
