@@ -1,3 +1,5 @@
+export{}
+
 const MONTHS_TO_NUM = {
     "januari": 0,
     "februari": 1,
