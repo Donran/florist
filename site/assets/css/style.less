@@ -33,6 +33,10 @@ body {
     background-color: gray;
 }
 
+#open-banner {
+    float:left;
+}
+
 .btn {
     border-color: @mainButtonColor !important;
     &:hover {
@@ -241,6 +245,16 @@ body {
         }
         100% {
             transform: translateY(0);
+        }
+    }
+
+    .open-banner-div {
+        display:none;
+        background-color:#fffab4;
+        font-size:1.3em;
+        padding:13px;
+        button {
+            font-size: 1.9rem;
         }
     }
 }
