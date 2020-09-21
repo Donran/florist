@@ -20,7 +20,7 @@
 **Your favorite editor**
 
 #### Browser 
-**Firefox/Chromium**
+**Firefox/Chrome**
 
 #### OS 
 **Linux: Ubuntu 20.04.1 LTS**
