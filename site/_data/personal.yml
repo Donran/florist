@@ -1,11 +1,14 @@
 - name: Anna Pettersson
   role: Hortonom
+  msg: Jag är utbildad hortonom och kan hjälpa dig eller ditt företag att göra det bästa valet utifrån dina behov och förutsättningar vad det gäller fruktträd, grönsaksodling och prydnadsväxter.
   img_src: ./assets/images/employees/anna_pettersson.jpg
 
 - name: Fredrik Ortqvist
   role: Ägare
+  msg: Min kärlek till blommor lade grunden till att Floristgården finns idag och jag hoppas att du som kund kan inspireras i vår butik.
   img_src: ./assets/images/employees/fredrik_ortqvist.jpg
 
 - name: Örjan Johansson
   role: Florist
+  msg: Om du behöver en bukett, oavsett om det är till bröllop, födelsedagsfirande eller något helt annat kan jag hjälpa dig att komponera buketten utifrån dina önskemål.
   img_src: ./assets/images/employees/orjan_johansson.jpg
