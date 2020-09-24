@@ -1,16 +1,4 @@
-- name: Måndagar
-  time: 10-16
-
-- name: Tisdagar
-  time: 10-16
-
-- name: Onsdagar
-  time: 10-16
-
-- name: Torsdagar
-  time: 10-16
-
-- name: Fredagar
+- name: Vardagar
   time: 10-16
 
 - name: Lördagar

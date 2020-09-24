@@ -21,11 +21,7 @@ class InformationTest(WebTestBase.BaseTest):
         driver.get(self.WEBSITE_URL)
 
         open_hours = [
-            'Måndagar 10-16',
-            'Tisdagar 10-16',
-            'Onsdagar 10-16',
-            'Torsdagar 10-16',
-            'Fredagar 10-16',
+            'Vardagar 10-16',
             'Lördagar 12-15',
             'Söndagar Stängt'
         ]

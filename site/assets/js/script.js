@@ -102,14 +102,28 @@ function updateClosedDays(date) {
     });
 }
 
+function getDayIndex(weekDay) {
+
+    switch (weekDay) {
+        case 0:     // Sunday
+            return 2;
+        case 6:     // Saturday
+            return 1;
+        default:    // Monday-Friday
+            return 0;
+    }
+}
+
 function openBanner(date)
 {
     $(".open-banner-div").css("display", "inline");
     let open_hours = $(".opening-hour").map((index, el) => {
         return el.lastChild.innerText;
     });
-    let day = date.getDay();
-    let open_hours_td = open_hours[day == 0 ? 6 : day-1];
+
+    let day = getDayIndex(date.getDay());
+    let open_hours_td = open_hours[day];
+
     if (open_hours_td.toLowerCase() == "stängt")
         $("#open-banner").text("Idag har vi stängt");
     else

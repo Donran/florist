@@ -26,10 +26,11 @@ class OpenStatusTest(WebTestBase.BaseTest):
             driver.execute_script(injected_javascript)
             driver.implicitly_wait(3)
 
-            parsed_yaml[date.weekday()]
+            day_index = 0 if date.weekday() < 5 else date.weekday() - 4
+
             status = driver.find_element(By.ID, "open-banner")
-            if parsed_yaml[date.weekday()]['time'].lower() not in status.text:
-                self.fail(f"Wrong hours are showing ({parsed_yaml[date.weekday()]['time']}, {status.text})")
+            if parsed_yaml[day_index]['time'].lower() not in status.text:
+                self.fail(f"Wrong hours are showing ({parsed_yaml[day_index]['time']}, {status.text})")
 
 
 
