@@ -66,6 +66,13 @@ gem install jekyll jekyll-less therubyracer
 jekyll serve -s site -d public -H 0.0.0.0 -P 8080
 ```
 
+The webserver can also be compiled and launched with
+```bash
+gem install jekyll jekyll-less therubyracer
+./start_server.sh
+```
+to make sure that any existing public folder is removed before starting the webserver locally. This option is slower but will not include files that have been deleted or couldn't be generated.
+
 Now that everything is running you can just run 
 ```bash
 cd tests/webtest
