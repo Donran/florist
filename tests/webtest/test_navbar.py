@@ -9,7 +9,7 @@ class NavbarTest(WebTestBase.BaseTest):
         required_links = {
             "Hem": "index.html",
             "Personal": "personal.html",
-            "Hitta Hit": "hitta_hit.html"
+            "Hitta hit": "hitta_hit.html"
         }
         navbar_items = driver.find_elements(By.CLASS_NAME, "nav-item")
         found = 0
