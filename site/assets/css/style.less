@@ -5,6 +5,10 @@
 @headerFont: 'Lora', serif;
 @mainButtonColor: #F17F98;
 
+@width-min-phone: 280px;
+@width-min-tablet: 768px;
+@width-min-desktop: 992px;
+
 html {
     scroll-behavior: smooth;
 }
@@ -72,7 +76,7 @@ body {
     }
 }
 
-@media screen and (min-width: 320px){
+@media screen and (min-width: @width-min-phone){
     .product-images {
         width:100%;
         > img {
@@ -261,13 +265,13 @@ body {
     }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: @width-min-tablet){
     .blommogram {
         width: 20vw;
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: @width-min-desktop) {
     .parallax {
         min-height: 90vh;
         > .parallax-content {
@@ -278,4 +282,12 @@ body {
     .blommogram {
         width: 16vw;
     }
+}
+
+label[for=navbar-toggler-noscript] {
+    cursor: pointer;
+}
+
+#navbar-toggler-noscript:checked ~ .collapse {
+    display: block;
 }
