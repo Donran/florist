@@ -74,3 +74,17 @@ class InformationTest(WebTestBase.BaseTest):
         driver.get(self.WEBSITE_URL)
         validTitle = "Floristgården"
         self.assertIn(validTitle, driver.title)
+
+    def test_blomgram_title_exist(self):
+        driver = self.driver
+        driver.get(self.WEBSITE_URL)
+        validBlomTitle = "Vill du ha blommor hemskickade till någon du håller nära. Det fixar vi!"
+        elem = driver.find_element(By.CLASS_NAME, "blomTitle")
+        self.assertIn(validBlomTitle, elem.text)
+
+    def test_blomgram_exist(self):
+        driver = self.driver
+        driver.get(self.WEBSITE_URL)
+        validInfo = "Befinner du dig i Kiruna? Då kan vi skicka blommor hem till dig!\nRing 0630-555-555 för att beställa och betala sedan med faktura.\nOsäker om vi levererar till ditt område? Testa genom att skriv in postnummer nedan.\nÖvriga frågor: Ring 0630-555-555"
+        elem = driver.find_element(By.CLASS_NAME, "blomInfo")
+        self.assertIn(validInfo, elem.text)
