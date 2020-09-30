@@ -31,9 +31,19 @@ body {
     display: none;
 }
 
-#map {
-    height: 400px;
-    background-color: gray;
+.mapcontainer{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+    
+    > iframe{
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+    }
 }
 
 /* Add the below transitions to allow a smooth color change similar to lyft */
