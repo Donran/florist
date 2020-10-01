@@ -6,7 +6,7 @@ class EmployeeWelcomeTest(WebTestBase.BaseTest):
         driver = self.driver
         driver.get(self.WEBSITE_URL+"/personal.html")
         welcometxt = driver.find_element(By.CLASS_NAME, "employee_welcome").text
-        txt_in_class = ("Välkommen till oss på Floristgården! Vi är ett sammansvetsat gäng med olika expertkompetenser som därmed kan hjälpa dig på bästa sätt utifrån dina behov.")
+        txt_in_class = ("Välkommen till oss på Floristgården! Vi är ett sammansvetsat gäng med olika expertkompetenser som kan hjälpa dig på bästa sätt utifrån dina behov.")
 
         if welcometxt == txt_in_class:
             True
