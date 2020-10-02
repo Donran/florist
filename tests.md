@@ -55,20 +55,25 @@ gitlab-runner exec docker static_validation
 ```
 # Running tests locally without CI script
 
-To run tests by themselves, you're going to need python3, jq, and dependencies for jekyll installed. To install those just run the following commands:
+To run tests by themselves, you're going to need npm, python3, jq, and dependencies for jekyll installed. To install those just run the following commands:
 ```bash
-sudo apt install python3 jq ruby-full build-essential zlib1g-dev firefox-esr # Note: firefox works as well
+sudo apt install python3 jq ruby-full build-essential zlib1g-dev npm firefox-esr # Note: firefox works as well
+```
+
+You will need to install the npm packages specified in `package.json` for typescript support by running the following command in the projects root directory:
+```bash
+npm install
 ```
 
 To install jekyll, compile the website and launch the webserver, simply run the following commands
 ```bash
-gem install jekyll jekyll-less therubyracer
+gem install jekyll jekyll-less therubyracer jekyll-tsc
 jekyll serve -s site -d public -H 0.0.0.0 -P 8080
 ```
 
 The webserver can also be compiled and launched with
 ```bash
-gem install jekyll jekyll-less therubyracer
+gem install jekyll jekyll-less therubyracer jekyll-tsc
 ./start_server.sh
 ```
 to make sure that any existing public folder is removed before starting the webserver locally. This option is slower but will not include files that have been deleted or couldn't be generated.
